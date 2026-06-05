@@ -2235,25 +2235,18 @@ async function notifyMake(event, payload) {
     attribution: getAttribution(),
     ...payload
   });
+  // Make-Webhook erwartet ein Feld "value" (Parse-JSON mappt {{1.value}}).
+  // application/x-www-form-urlencoded ist CORS-safe (kein Preflight, no-cors-tauglich)
+  // und wird von Make in benannte Felder geparst -> 1.value enthält den JSON-String.
   try {
-    // Primärer Versuch: application/json (funktioniert wenn CORS-Header in Make erlaubt sind)
     await fetch(MAKE_WEBHOOK_URL, {
       method: 'POST',
       mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain' },
-      body: body
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: 'value=' + encodeURIComponent(body)
     });
   } catch(e) {
-    // Fallback: text/plain (umgeht CORS-Preflights bei manchen Browsern)
-    try {
-      await fetch(MAKE_WEBHOOK_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: body
-      });
-    } catch(e2) {
-      console.log('[Make Webhook] Fehler:', e2);
-    }
+    console.log('[Make Webhook] Fehler:', e);
   }
 }
 
