@@ -1,0 +1,2287 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Meta Pixel Code -->
+<script>
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','634469765867935');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=634469765867935&ev=PageView&noscript=1"
+/></noscript>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bewerberpool-Kalkulator Tiefbau | GreenCareers</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* GC-Tiefbau-Palette (synchron zu beratung-tiefbau.green-careers.de) */
+      --moss: #2D3338;
+      --moss-dark: #1A1D21;
+      --moss-deep: #0E1012;
+      --poison-green: #FF6B1A;
+      --poison-glow: #FF8533;
+      --lime-green: #E55A0A;
+      --fern: #FFB07A;
+      --gradient-cta: linear-gradient(135deg, #FF6B1A 0%, #E55A0A 100%);
+      --earth: #4B4444;
+      --sand-ash: #1F1F1F;
+      --white: #FFFFFF;
+      --off-white: #F8F7F5;
+      --warm-gray: #F1EEE8;
+      /* Legacy-Aliases (für bestehende Score/Card-Styles) */
+      --green-dark: var(--moss-dark);
+      --green-main: var(--lime-green);
+      --green-light: var(--poison-green);
+      --green-pale: #FFF1E8;
+      --score-gut: #1e8449;
+      --score-gut-bg: #e8f8ef;
+      --score-mittel: #b7770d;
+      --score-mittel-bg: #fef9e7;
+      --score-schwach: #c0392b;
+      --score-schwach-bg: #fdedec;
+      --text-dark: var(--sand-ash);
+      --text-gray: var(--earth);
+      --border: #E4E2DC;
+      --radius: 16px;
+      --shadow: 0 4px 24px rgba(14,16,18,0.10);
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--off-white);
+      color: var(--text-dark);
+      min-height: 100vh;
+      line-height: 1.55;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(155deg, var(--moss-deep) 0%, var(--moss-dark) 60%, var(--moss) 100%);
+      color: #fff;
+      padding: 44px 20px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse at 80% 20%, rgba(255,107,26,0.18) 0%, transparent 50%),
+        radial-gradient(ellipse at 20% 90%, rgba(255,107,26,0.10) 0%, transparent 50%);
+    }
+    header > * { position: relative; z-index: 1; }
+    .logo-row {
+      display: inline-flex; align-items: center; gap: 10px;
+      text-decoration: none; margin-bottom: 20px;
+    }
+    .logo-icon {
+      width: 42px; height: 42px; background: #FF8533;
+      border-radius: 11px; display: flex; align-items: center;
+      justify-content: center; font-size: 22px; flex-shrink: 0;
+    }
+    .logo-text { font-size: 1.2rem; font-weight: 800; color: #fff; }
+    header h1  { font-size: clamp(1.7rem, 5vw, 2.5rem); font-weight: 900; line-height: 1.15; margin-bottom: 12px; }
+    header p   { font-size: 0.97rem; opacity: 0.82; max-width: 520px; margin: 0 auto; }
+
+    /* ── MAIN ── */
+    main { max-width: 680px; margin: 0 auto; padding: 32px 16px 64px; }
+
+    /* ── CARD ── */
+    .card { background: #fff; border-radius: var(--radius); padding: 28px 24px; box-shadow: var(--shadow); margin-bottom: 20px; }
+    .card h2  { font-size: 1.2rem; color: var(--green-dark); font-weight: 800; margin-bottom: 4px; }
+    .card .sub { color: var(--text-gray); font-size: 0.9rem; margin-bottom: 24px; }
+
+    /* ── PLZ INPUT ── */
+    .field-label {
+      display: block; font-size: 0.8rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.6px;
+      color: var(--text-gray); margin-bottom: 8px;
+    }
+    .plz-input {
+      width: 100%; padding: 16px 20px;
+      font-size: 1.6rem; font-weight: 800; letter-spacing: 8px;
+      border: 2px solid var(--border); border-radius: 14px;
+      outline: none; color: var(--text-dark); background: #fafcfa;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+    }
+    .plz-input:focus { border-color: var(--green-light); box-shadow: 0 0 0 3px rgba(255,107,26,0.15); }
+    .plz-input::placeholder { color: #bbb; font-weight: 400; letter-spacing: 4px; }
+    .error-msg { display: none; color: var(--score-schwach); font-size: 0.85rem; margin-top: 8px; font-weight: 500; }
+
+    /* ── PROFESSION CHECKS ── */
+    .section-row {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 6px; margin: 24px 0 12px;
+    }
+    .section-row .field-label { margin: 0; }
+    .toggle-all {
+      font-size: 0.8rem; color: var(--green-main); cursor: pointer;
+      font-weight: 600; background: none; border: none;
+      text-decoration: underline; text-underline-offset: 2px;
+      padding: 0; min-height: 44px;
+    }
+    .prof-grid { display: flex; flex-direction: column; gap: 10px; }
+    @media (min-width: 500px) { .prof-grid { display: grid; grid-template-columns: 1fr 1fr; } }
+    .prof-check {
+      display: flex; align-items: center; gap: 13px;
+      padding: 14px 16px; border: 2px solid var(--border);
+      border-radius: 13px; cursor: pointer;
+      transition: all 0.15s; user-select: none;
+      background: #fafcfa; min-height: 56px;
+    }
+    .prof-check:hover  { border-color: var(--green-light); background: var(--green-pale); }
+    .prof-check.active { border-color: var(--green-light); background: var(--green-pale); }
+    .prof-check input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--green-main); flex-shrink: 0; }
+    .prof-check .p-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .prof-check .p-name { font-size: 0.9rem; font-weight: 600; color: var(--text-dark); line-height: 1.3; }
+
+    /* ── BUTTON ── */
+    .btn-wrap { display: flex; justify-content: center; margin-top: 28px; }
+    .btn-calc {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--gradient-cta);
+      color: var(--sand-ash); border: none; padding: 18px 48px;
+      font-size: 1.05rem; font-weight: 700; border-radius: 50px;
+      cursor: pointer; box-shadow: 0 6px 22px rgba(255,107,26,0.32);
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s;
+      width: 100%; max-width: 380px; justify-content: center;
+      -webkit-appearance: none;
+      font-family: 'Poppins', sans-serif;
+      min-height: 56px;
+    }
+    .btn-calc:hover  { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(255,107,26,0.45); }
+    .btn-calc:active { transform: translateY(0); }
+    .btn-calc:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+
+    /* ── RESULTS ── */
+    #results { display: none; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    .fade-up { animation: fadeUp 0.4s ease forwards; }
+
+    /* Region header */
+    .results-header {
+      background: linear-gradient(155deg, #7A2E05, var(--green-main));
+      border-radius: var(--radius); padding: 24px 24px 22px;
+      color: #fff; margin-bottom: 16px;
+    }
+    .rh-label { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.6; margin-bottom: 4px; }
+    .rh-name  { font-size: clamp(1.3rem, 4vw, 1.7rem); font-weight: 900; line-height: 1.15; margin-bottom: 8px; }
+    .rh-meta  { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .rh-bl    { display: inline-block; background: rgba(255,255,255,0.18); padding: 3px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+    .rh-plz   { font-size: 0.9rem; opacity: 0.5; font-weight: 700; letter-spacing: 2px; }
+
+    /* Overall score */
+    .overall-box {
+      border-radius: var(--radius); padding: 18px 20px; border-left: 5px solid;
+      display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;
+    }
+    .ob-icon { font-size: 1.7rem; flex-shrink: 0; margin-top: 1px; }
+    .overall-box h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 3px; }
+    .overall-box p  { font-size: 0.88rem; opacity: 0.85; }
+
+    /* Teaser highlight (big number) */
+    .teaser-highlight {
+      background: #fff; border-radius: var(--radius);
+      padding: 24px 24px 20px; box-shadow: var(--shadow);
+      margin-bottom: 0; text-align: center;
+      border-bottom-left-radius: 0; border-bottom-right-radius: 0;
+    }
+    .th-label  { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-gray); margin-bottom: 4px; }
+    .th-number { font-size: clamp(3rem, 10vw, 4.5rem); font-weight: 900; color: var(--green-dark); line-height: 1; margin-bottom: 4px; }
+    .th-unit   { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 20px; }
+
+    /* ── LOCK PREVIEW SECTION ── */
+    /* Blurred peek strip – shows partial content fading out */
+    .lock-peek {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+      background: #fff;
+      /* no border-radius top to flow from teaser-highlight */
+    }
+    .lock-peek-inner {
+      filter: blur(5px);
+      padding: 16px 24px 0;
+      pointer-events: none;
+      user-select: none;
+      transform: scale(1.03); /* hide blur artifacts at edges */
+    }
+    /* gradient fade from transparent → page bg colour */
+    .lock-peek-fade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0)  0%,
+        rgba(240,247,241,0.6) 40%,
+        rgba(240,247,241,1)  100%
+      );
+    }
+    /* Lock badge floating in the middle of the peek */
+    .lock-badge-wrap {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .lock-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--green-dark);
+      font-size: 1rem; font-weight: 900;
+      padding: 11px 22px; border-radius: 50px;
+      box-shadow: 0 4px 20px rgba(229,90,10,0.25);
+      border: 2px solid var(--border);
+    }
+    .lock-badge-sub {
+      font-size: 0.8rem; color: var(--text-gray);
+      font-weight: 600; text-align: center; line-height: 1.4;
+    }
+
+    /* ── GATE FORM CARD ── */
+    .gate-card {
+      background: #fff; border-radius: 0 0 var(--radius) var(--radius);
+      box-shadow: var(--shadow); padding: 24px 24px 28px;
+      margin-bottom: 20px;
+    }
+    .gate-header {
+      text-align: center; margin-bottom: 20px;
+      padding-top: 4px;
+    }
+    .gate-eyebrow {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--green-pale); color: var(--green-dark);
+      font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      padding: 5px 12px; border-radius: 20px; margin-bottom: 10px;
+    }
+    .gate-header h3 { font-size: 1.1rem; font-weight: 900; color: var(--text-dark); margin-bottom: 5px; line-height: 1.3; }
+    .gate-header p  { font-size: 0.85rem; color: var(--text-gray); }
+
+    /* Form fields */
+    .field-group { margin-bottom: 13px; }
+    .field-group label {
+      display: block; font-size: 0.78rem; font-weight: 700;
+      color: var(--text-gray); margin-bottom: 5px;
+      text-transform: uppercase; letter-spacing: 0.4px;
+    }
+    .field-group input,
+    .field-group select {
+      width: 100%; padding: 14px 15px;
+      font-size: 16px; /* prevents iOS zoom */
+      border: 2px solid var(--border); border-radius: 12px;
+      outline: none; color: var(--text-dark); background: #fafcfa;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .field-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23546e5a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center;
+      padding-right: 40px;
+    }
+    .field-group input:focus,
+    .field-group select:focus { border-color: var(--green-light); box-shadow: 0 0 0 3px rgba(255,107,26,0.12); }
+    .field-group input::placeholder { color: #bbb; }
+
+    .gate-error { display:none; color: var(--score-schwach); font-size:0.83rem; font-weight:600; margin-bottom:10px; text-align:center; }
+
+    .btn-gate {
+      width: 100%; padding: 17px;
+      background: linear-gradient(135deg, var(--green-dark), var(--green-light));
+      color: #fff; border: none; border-radius: 50px;
+      font-size: 1rem; font-weight: 800; cursor: pointer;
+      box-shadow: 0 4px 16px rgba(45,122,45,0.35);
+      transition: transform 0.15s, box-shadow 0.15s;
+      min-height: 54px; -webkit-appearance: none;
+      margin-top: 6px;
+    }
+    .btn-gate:hover  { transform: translateY(-2px); box-shadow: 0 6px 22px rgba(45,122,45,0.45); }
+    .btn-gate:active { transform: translateY(0); }
+
+    .privacy-note {
+      font-size: 0.72rem; color: var(--text-gray);
+      text-align: center; margin-top: 10px; line-height: 1.5;
+    }
+    .privacy-note a { color: var(--green-main); }
+
+    /* ── FULL REPORT ── */
+    #fullReport { display: none; }
+
+    /* Profession cards */
+    .prof-results-grid { display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px; }
+    @media (min-width: 520px) { .prof-results-grid { display: grid; grid-template-columns: 1fr 1fr; } }
+
+    .prof-card {
+      background: #fff; border-radius: var(--radius);
+      padding: 20px 22px; box-shadow: 0 2px 12px rgba(229,90,10,0.08);
+      border-top: 4px solid #ccc;
+    }
+    .prof-card.gut    { border-top-color: var(--score-gut); }
+    .prof-card.mittel { border-top-color: #f39c12; }
+    .prof-card.schwach{ border-top-color: var(--score-schwach); }
+
+    .pc-icon   { font-size: 1.6rem; margin-bottom: 6px; }
+    .pc-title  { font-size: 0.78rem; color: var(--text-gray); margin-bottom: 2px; line-height: 1.4; }
+    .pc-number { font-size: clamp(2.2rem, 7vw, 3rem); font-weight: 900; color: var(--text-dark); line-height: 1; margin-bottom: 2px; }
+    .pc-unit   { font-size: 0.76rem; color: var(--text-gray); margin-bottom: 12px; }
+
+    .score-pill {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 11px; border-radius: 20px;
+      font-size: 0.78rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 12px;
+    }
+    .score-pill.gut    { background: var(--score-gut-bg);    color: var(--score-gut); }
+    .score-pill.mittel { background: var(--score-mittel-bg); color: var(--score-mittel); }
+    .score-pill.schwach{ background: var(--score-schwach-bg);color: var(--score-schwach); }
+
+    .comp-bar-label { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-gray); margin-bottom: 4px; }
+    .comp-bar-track { background: #ecf0ec; border-radius: 100px; height: 7px; overflow: hidden; position: relative; }
+    .comp-bar-national { position: absolute; top:0; bottom:0; width:3px; background:#b0bfb0; left:50%; }
+    .comp-bar-fill { height:100%; border-radius:100px; transition: width 0.9s cubic-bezier(0.4,0,0.2,1); }
+    .gut    .comp-bar-fill { background: var(--score-gut); }
+    .mittel .comp-bar-fill { background: #f39c12; }
+    .schwach .comp-bar-fill { background: var(--score-schwach); }
+
+    .pc-compare { font-size: 0.76rem; font-weight: 700; margin: 5px 0; }
+    .pc-desc    { font-size: 0.79rem; color: #666; margin-top: 8px; line-height: 1.45; }
+
+    /* Report sections */
+    .report-section {
+      background: #fff; border-radius: var(--radius);
+      padding: 22px; box-shadow: 0 2px 12px rgba(229,90,10,0.07);
+      margin-bottom: 16px;
+    }
+    .rs-title { font-size: 0.97rem; font-weight: 800; color: var(--green-dark); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+
+    /* Insights */
+    .insights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .insight-box { background: var(--green-pale); border-radius: 11px; padding: 13px 15px; }
+    .ib-label { font-size: 0.72rem; color: var(--text-gray); text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 4px; }
+    .ib-value { font-size: 1rem; font-weight: 800; color: var(--green-dark); }
+
+    /* Cost-per-Hire Card (im Vollreport) */
+    .cph-card {
+      background: linear-gradient(135deg, #f0f7f1 0%, #e0efe2 100%);
+      border-radius: 14px;
+      padding: 22px 20px;
+      text-align: center;
+      border: 1px solid rgba(45,122,45,0.15);
+    }
+    .cph-range {
+      font-size: 2rem; font-weight: 900;
+      color: var(--green-dark);
+      line-height: 1.1; margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+    .cph-sep { font-weight: 400; color: var(--text-gray); margin: 0 4px; }
+    .cph-label {
+      font-size: 0.84rem; font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+    }
+    .cph-note {
+      font-size: 0.78rem; line-height: 1.55;
+      color: var(--text-gray);
+      max-width: 480px; margin: 0 auto;
+      padding-top: 12px; border-top: 1px solid rgba(45,122,45,0.12);
+    }
+
+    /* Strategy */
+    .strategy-grid { display: flex; flex-direction: column; gap: 10px; }
+    .strategy-item {
+      display: flex; gap: 13px; align-items: flex-start;
+      padding: 12px 14px; background: #f8fcf8;
+      border-radius: 11px; border-left: 3px solid var(--green-light);
+    }
+    .si-num {
+      width: 26px; height: 26px; background: var(--green-main);
+      color: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.78rem; font-weight: 800; flex-shrink: 0;
+    }
+    .si-text { font-size: 0.87rem; color: var(--text-dark); line-height: 1.5; }
+    .si-text strong { display: block; font-size: 0.9rem; margin-bottom: 2px; color: var(--green-dark); }
+
+    /* Tips */
+    .tips-list { list-style: none; }
+    .tips-list li {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 11px 0; border-bottom: 1px solid #eef3ee;
+      font-size: 0.87rem; color: var(--text-dark); line-height: 1.5;
+    }
+    .tips-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .tips-list .ti { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+
+    /* Timeline */
+    .timeline { display: flex; flex-direction: column; }
+    .tl-row {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 10px 0; border-bottom: 1px solid #eef3ee;
+    }
+    .tl-row:last-child { border-bottom: none; }
+    .tl-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green-light); flex-shrink: 0; margin-top: 6px; }
+    .tl-label { font-size: 0.85rem; font-weight: 700; color: var(--text-dark); }
+    .tl-sub   { font-size: 0.79rem; color: var(--text-gray); }
+
+    /* Disclaimer */
+    .disclaimer {
+      background: #f8fbf8; border: 1px solid var(--border);
+      border-radius: 12px; padding: 13px 16px;
+      font-size: 0.76rem; color: var(--text-gray); line-height: 1.5; margin-bottom: 16px;
+    }
+
+    /* CTA */
+    .cta-box {
+      background: linear-gradient(155deg, #7A2E05, var(--green-main));
+      border-radius: var(--radius); padding: 32px 24px;
+      text-align: center; color: #fff; margin-bottom: 20px;
+    }
+    .cta-box h3 { font-size: 1.3rem; font-weight: 900; margin-bottom: 8px; }
+    .cta-box p  { opacity: 0.82; margin-bottom: 22px; font-size: 0.9rem; }
+    .btn-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--green-dark);
+      font-weight: 900; padding: 15px 34px; border-radius: 50px;
+      text-decoration: none; font-size: 0.97rem;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    }
+    .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.28); }
+
+    /* ── BOOKING MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(10,30,10,0.65);
+      backdrop-filter: blur(3px);
+      align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: #fff; border-radius: 20px;
+      padding: 32px 28px; width: 100%; max-width: 460px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: fadeUp 0.3s ease forwards;
+      max-height: 90vh; overflow-y: auto;
+    }
+    .modal-close {
+      float: right; background: none; border: none;
+      font-size: 1.4rem; cursor: pointer; color: var(--text-gray);
+      line-height: 1; margin-top: -4px;
+    }
+    .modal-eyebrow {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--green-pale); color: var(--green-dark);
+      font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      padding: 5px 12px; border-radius: 20px; margin-bottom: 12px;
+    }
+    .modal-box h3 { font-size: 1.15rem; font-weight: 900; margin-bottom: 6px; line-height: 1.3; }
+    .modal-box .modal-sub { font-size: 0.85rem; color: var(--text-gray); margin-bottom: 22px; }
+
+    /* ── SLIM TRUST BAR (above the fold) ── */
+    .trust-bar {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 10px 16px;
+    }
+    .trust-bar-inner {
+      max-width: 680px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: center;
+      gap: 18px; flex-wrap: wrap;
+      font-size: 0.8rem; color: var(--text-gray);
+    }
+    .trust-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-weight: 600;
+    }
+    .trust-chip .b-icon { font-size: 0.95rem; }
+    .trust-stars { color: #f5b800; letter-spacing: 0.5px; font-size: 0.9rem; font-weight: 700; }
+    .trust-bar strong { color: var(--green-dark); font-weight: 800; }
+    /* Google mini-logo (multicolored) */
+    .g-mini-logo {
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: -0.3px;
+      line-height: 1;
+    }
+    .g-mini-logo span:nth-child(1) { color: #4285F4; }
+    .g-mini-logo span:nth-child(2) { color: #EA4335; }
+    .g-mini-logo span:nth-child(3) { color: #FBBC05; }
+    .g-mini-logo span:nth-child(4) { color: #4285F4; }
+    .g-mini-logo span:nth-child(5) { color: #34A853; }
+    .g-mini-logo span:nth-child(6) { color: #EA4335; }
+
+    @media (max-width: 480px) {
+      .trust-bar { padding: 9px 12px; }
+      .trust-bar-inner { gap: 8px 12px; font-size: 0.72rem; }
+      .g-mini-logo { font-size: 0.82rem; }
+      .trust-stars { font-size: 0.82rem; }
+    }
+
+    /* ── SOCIAL PROOF (Google Reviews block — below calculator) ── */
+    .reviews-section {
+      max-width: 680px; margin: 8px auto 0;
+      padding: 0 4px;
+    }
+    .reviews-header {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; margin-bottom: 22px; flex-wrap: wrap;
+      text-align: center;
+    }
+    @media (max-width: 480px) {
+      .reviews-header { flex-direction: column; gap: 6px; }
+      .reviews-section { margin-top: 4px; }
+      .review-card { padding: 18px 16px 16px; }
+      .review-text { font-size: 0.88rem; }
+    }
+    .reviews-header .g-logo {
+      font-family: Arial, sans-serif; font-weight: 700; font-size: 1.15rem;
+      color: var(--text-dark); letter-spacing: -0.5px;
+    }
+    .reviews-header .g-logo span:nth-child(1) { color: #4285F4; }
+    .reviews-header .g-logo span:nth-child(2) { color: #EA4335; }
+    .reviews-header .g-logo span:nth-child(3) { color: #FBBC05; }
+    .reviews-header .g-logo span:nth-child(4) { color: #4285F4; }
+    .reviews-header .g-logo span:nth-child(5) { color: #34A853; }
+    .reviews-header .g-logo span:nth-child(6) { color: #EA4335; }
+    .reviews-header .rating-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.88rem; color: var(--text-dark); font-weight: 600;
+    }
+    .reviews-header .rating-badge .rating-num { font-weight: 800; font-size: 1rem; }
+    .reviews-header .rating-badge .rating-stars { color: #f5b800; letter-spacing: 1px; }
+
+    .reviews-grid {
+      display: grid; gap: 14px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) {
+      .reviews-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .review-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 14px; padding: 20px 20px 18px;
+      box-shadow: 0 1px 4px rgba(229,90,10,0.04);
+    }
+    .review-header {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+    }
+    .review-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; color: #fff; font-size: 0.85rem; flex-shrink: 0;
+    }
+    .avatar-1 { background: linear-gradient(135deg, #607d8b, #37474f); }
+    .avatar-2 { background: linear-gradient(135deg, #ef6c00, #c62828); }
+    .avatar-3 { background: linear-gradient(135deg, #1976d2, #0d47a1); }
+    .avatar-4 { background: linear-gradient(135deg, #8e24aa, #4a148c); }
+    .review-meta { flex: 1; line-height: 1.2; min-width: 0; }
+    .review-name { font-size: 0.88rem; font-weight: 700; color: var(--text-dark); }
+    .review-date { font-size: 0.72rem; color: var(--text-gray); margin-top: 2px; }
+    .review-stars { color: #f5b800; font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 8px; }
+    .review-text {
+      font-size: 0.85rem; color: var(--text-dark);
+      line-height: 1.55;
+    }
+    .review-verified {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 0.7rem; color: var(--text-gray); margin-top: 10px;
+    }
+    .review-verified::before {
+      content: '✓'; color: var(--green-main); font-weight: 900;
+    }
+
+    /* Bottom stats row */
+    .bottom-stats {
+      display: flex; align-items: center; justify-content: center;
+      gap: 18px; margin-top: 24px; flex-wrap: wrap;
+      font-size: 0.82rem; color: var(--text-gray);
+    }
+    .bs-item {
+      display: inline-flex; align-items: baseline; gap: 6px;
+    }
+    .bs-item strong { color: var(--green-dark); font-size: 1rem; font-weight: 800; }
+    .bs-sep { opacity: 0.4; font-weight: 700; }
+    .made-with-love {
+      text-align: center; margin-top: 18px;
+      font-size: 0.82rem; color: var(--text-gray);
+    }
+
+    @media (max-width: 480px) {
+      .bottom-stats { gap: 8px 14px; font-size: 0.78rem; }
+      .bs-item { flex-direction: row; }
+      .bs-item strong { font-size: 0.92rem; }
+      .bs-sep { display: none; }
+    }
+
+    /* Footer */
+    footer { text-align: center; padding: 28px 20px; color: var(--text-gray); font-size: 0.8rem; line-height: 1.6; }
+    footer a { color: var(--green-main); text-decoration: none; }
+
+    /* Mobile polish */
+    @media (max-width: 480px) {
+      header { padding: 32px 16px 28px; }
+      header h1 { font-size: 1.55rem; }
+      main { padding: 24px 14px 48px; }
+      .card { padding: 22px 18px; }
+      .gate-card { padding: 22px 18px 24px; }
+      .modal-box { padding: 26px 20px; }
+      .field-group input, .field-group select { padding: 13px 14px; }
+      .btn-calc { padding: 16px 28px; }
+    }
+
+    /* =====================================================
+       PHASE 3: LOCK-SCREEN + UNLOCK-CTA (statt scroll-to-form)
+       ===================================================== */
+    /* =====================================================
+       OPEN SECTIONS (vorne ohne Gate sichtbar – Marktanalyse + Insight)
+       ===================================================== */
+    .open-section {
+      margin-top: 16px;
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 20px 18px 18px;
+      box-shadow: var(--shadow);
+    }
+    .os-title {
+      font-size: 0.92rem; font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+    .os-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (min-width: 520px) { .os-grid { grid-template-columns: repeat(4, 1fr); } }
+    .os-box {
+      background: var(--warm-gray);
+      border-radius: 10px;
+      padding: 12px 12px;
+      text-align: center;
+      border: 1px solid rgba(40, 80, 40, 0.06);
+    }
+    .os-label {
+      font-size: 0.66rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--text-gray);
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+    .os-value {
+      font-size: 0.95rem; font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.25;
+    }
+    .insight-card {
+      margin-top: 14px;
+      background: linear-gradient(135deg, #FFF6F0 0%, #FDEBDD 100%);
+      border-left: 4px solid var(--poison-green);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+    .ic-header {
+      font-size: 0.78rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--lime-green);
+      margin-bottom: 8px;
+    }
+    .ic-body {
+      font-size: 0.92rem; line-height: 1.55;
+      color: var(--text-dark);
+    }
+    .ic-body strong { color: var(--lime-green); }
+
+    /* Unlock-Liste statt Fließtext */
+    .unlock-list {
+      list-style: none; padding: 0; margin: 0 auto 18px;
+      max-width: 420px;
+      text-align: left;
+    }
+    .unlock-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 10px 0;
+      font-size: 0.88rem; line-height: 1.5;
+      color: rgba(255,255,255,0.78);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .unlock-list li:last-child { border-bottom: none; }
+    .unlock-list li > div { flex: 1; }
+    .unlock-list li strong {
+      display: block;
+      color: #fff; font-weight: 700;
+      margin-bottom: 1px;
+    }
+    .ul-check {
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      background: rgba(255,107,26,0.18);
+      color: var(--poison-glow);
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 0.78rem; font-weight: 700;
+      margin-top: 1px;
+    }
+
+    .unlock-hero {
+      margin-top: 18px;
+      padding: 28px 22px;
+      background: linear-gradient(135deg, var(--moss-deep), var(--moss-dark));
+      border-radius: var(--radius);
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 28px rgba(255,107,26,0.18);
+    }
+    .unlock-hero::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse at 50% 0%, rgba(255,107,26,0.18) 0%, transparent 60%);
+    }
+    .unlock-hero > * { position: relative; z-index: 1; }
+    .unlock-hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--poison-glow);
+      background: rgba(255,107,26,0.14);
+      border: 1px solid rgba(255,107,26,0.35);
+      padding: 5px 12px; border-radius: 50px;
+      margin-bottom: 14px;
+    }
+    .unlock-hero h3 {
+      font-size: 1.18rem; font-weight: 700;
+      line-height: 1.3; margin-bottom: 8px;
+      color: #fff;
+    }
+    .unlock-hero p {
+      font-size: 0.88rem; line-height: 1.55;
+      color: rgba(255,255,255,0.78);
+      max-width: 380px; margin: 0 auto 18px;
+    }
+    .btn-unlock {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; max-width: 380px;
+      background: var(--gradient-cta);
+      color: var(--sand-ash);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700; font-size: 1rem;
+      padding: 16px 22px; border: none; border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 8px 26px rgba(255,107,26,0.42);
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s;
+      min-height: 56px;
+      animation: pulse-unlock 2.6s ease-in-out infinite;
+    }
+    .btn-unlock:hover { transform: translateY(-2px); box-shadow: 0 14px 38px rgba(255,107,26,0.55); animation: none; }
+    .btn-unlock:active { transform: translateY(0); }
+    .btn-unlock:disabled { opacity: 0.65; cursor: not-allowed; transform: none; box-shadow: none; animation: none; }
+    @keyframes pulse-unlock {
+      0%, 100% { box-shadow: 0 8px 26px rgba(255,107,26,0.42), 0 0 0 0 rgba(255,107,26,0.55); }
+      50%      { box-shadow: 0 8px 26px rgba(255,107,26,0.42), 0 0 0 16px rgba(255,107,26,0); }
+    }
+    .unlock-hero-trust {
+      display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+      margin-top: 14px;
+      font-size: 0.72rem; color: rgba(255,255,255,0.66);
+    }
+    .unlock-hero-trust span { display: inline-flex; align-items: center; gap: 5px; }
+
+    /* =====================================================
+       PHASE 4: QUIZ-FUNNEL (5 Steps, ersetzt das 7-Felder-Form)
+       ===================================================== */
+    .quiz-container {
+      display: none;
+      margin-top: 16px;
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 26px 22px;
+      box-shadow: var(--shadow);
+      animation: quizFadeIn 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .quiz-container.is-open { display: block; }
+
+    @keyframes quizFadeIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .quiz-progress {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      margin-bottom: 22px;
+    }
+    .quiz-progress-label {
+      font-size: 0.78rem; font-weight: 600; color: var(--text-gray);
+      letter-spacing: 0.02em;
+    }
+    .quiz-progress-bar {
+      width: 100%; max-width: 320px; height: 8px;
+      background: var(--warm-gray); border-radius: 50px; overflow: hidden;
+      position: relative;
+    }
+    .quiz-progress-fill {
+      position: absolute; top: 0; left: 0; bottom: 0;
+      background: var(--gradient-cta);
+      border-radius: 50px;
+      transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 0 12px rgba(0, 210, 97, 0.45);
+    }
+
+    .quiz-slide { display: none; animation: quizFadeIn 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+    .quiz-slide.is-active { display: block; }
+
+    .quiz-question {
+      font-size: 1.14rem; font-weight: 700; color: var(--moss-dark);
+      text-align: center; line-height: 1.35; margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+    @media (min-width: 640px) { .quiz-question { font-size: 1.26rem; } }
+    .quiz-subtext {
+      font-size: 0.86rem; color: var(--text-gray); text-align: center;
+      line-height: 1.55; margin-bottom: 22px;
+      max-width: 440px; margin-left: auto; margin-right: auto;
+    }
+
+    .quiz-options { display: flex; flex-direction: column; gap: 10px; max-width: 480px; margin: 0 auto; }
+    .quiz-option {
+      width: 100%;
+      background: #fff;
+      border: 2px solid var(--border);
+      color: var(--moss-dark);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600; font-size: 0.94rem;
+      padding: 14px 18px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+      line-height: 1.35;
+      min-height: 54px;
+    }
+    .quiz-option:hover {
+      border-color: var(--poison-green);
+      background: rgba(0, 210, 97, 0.06);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 210, 97, 0.12);
+    }
+    .quiz-option:active { transform: translateY(0); }
+    .quiz-option.is-selected {
+      border-color: var(--poison-green);
+      background: var(--gradient-cta);
+      color: var(--sand-ash);
+    }
+
+    .quiz-input-group {
+      max-width: 460px; margin: 0 auto 14px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .quiz-input-wrap { position: relative; }
+    .quiz-input-wrap .quiz-input-icon {
+      position: absolute; top: 50%; left: 14px; transform: translateY(-50%);
+      width: 18px; height: 18px;
+      color: var(--lime-green); opacity: 0.85;
+    }
+    .quiz-input {
+      width: 100%; padding: 14px 16px 14px 42px;
+      border: 2px solid var(--border); border-radius: 12px;
+      font-family: 'Poppins', sans-serif; font-size: 0.95rem;
+      color: var(--moss-dark);
+      background: #fff;
+      transition: all 0.2s ease;
+      min-height: 52px;
+      -webkit-appearance: none;
+    }
+    .quiz-input:focus {
+      outline: none;
+      border-color: var(--poison-green);
+      box-shadow: 0 0 0 4px rgba(0, 210, 97, 0.12);
+    }
+    .quiz-input.is-error { border-color: #e53e3e; box-shadow: 0 0 0 4px rgba(229, 62, 62, 0.10); }
+    .quiz-input::placeholder { color: #9A9690; }
+
+    .quiz-cta {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; max-width: 460px; margin: 14px auto 0;
+      background: var(--gradient-cta); color: var(--sand-ash);
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: 0.98rem; padding: 16px 22px;
+      border: none; border-radius: 50px;
+      cursor: pointer; transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 6px 22px rgba(0, 210, 97, 0.32);
+      min-height: 54px;
+    }
+    .quiz-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0, 210, 97, 0.45); }
+    .quiz-cta:disabled { opacity: 0.65; cursor: not-allowed; transform: none; box-shadow: none; }
+
+    .quiz-back {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: none; border: none; cursor: pointer;
+      color: var(--text-gray); font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem; font-weight: 500;
+      padding: 6px 8px; margin: 14px auto 0;
+      transition: color 0.2s ease;
+    }
+    .quiz-back:hover { color: var(--moss-dark); }
+
+    .quiz-privacy {
+      display: flex; gap: 10px; align-items: flex-start;
+      max-width: 460px; margin: 14px auto 0;
+      font-size: 0.72rem; color: var(--text-gray); line-height: 1.5;
+    }
+    .quiz-privacy input[type="checkbox"] {
+      width: 17px; height: 17px; flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: var(--poison-green);
+    }
+    .quiz-privacy a { color: var(--lime-green); text-decoration: underline; }
+
+    .quiz-trust-row {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;
+      margin-top: 18px;
+      font-size: 0.72rem; color: var(--text-gray);
+    }
+    .quiz-trust-row span { display: inline-flex; align-items: center; gap: 5px; }
+    .quiz-trust-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--poison-green);
+      box-shadow: 0 0 6px rgba(0, 210, 97, 0.55);
+    }
+
+    .quiz-error-msg {
+      display: none; max-width: 460px; margin: 12px auto 0;
+      padding: 10px 14px; border-radius: 10px;
+      background: rgba(229, 62, 62, 0.08); color: #b62828;
+      font-size: 0.82rem; text-align: center;
+      border: 1px solid rgba(229, 62, 62, 0.2);
+    }
+    .quiz-error-msg.active { display: block; }
+
+    .quiz-perso { color: var(--lime-green); font-weight: 700; }
+
+    .quiz-phone-wrap { display: flex; align-items: center; gap: 0; }
+    .quiz-phone-flag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #fff; border: 2px solid var(--border); border-right: none;
+      padding: 14px 12px; border-radius: 12px 0 0 12px;
+      font-size: 0.88rem; font-weight: 600; color: var(--moss-dark);
+      min-height: 52px; flex-shrink: 0;
+    }
+    .quiz-phone-wrap .quiz-input {
+      border-radius: 0 12px 12px 0;
+      padding-left: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo-row">
+    <img src="logo-white.png" alt="GreenCareers" style="height:42px;width:auto;">
+  </a>
+  <h1>Bewerberpool-Kalkulator Tiefbau</h1>
+  <p>Erfahren Sie, wie viele qualifizierte Fachkräfte aus dem Straßen- und Tiefbau in Ihrer Region erreichbar sind.</p>
+</header>
+
+<!-- ── SLIM TRUST BAR (above the fold) ── -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <span class="trust-chip">
+      <span class="g-mini-logo"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></span>
+      <strong>4,9</strong>
+      <span class="trust-stars">★★★★★</span>
+    </span>
+    <span class="trust-chip"><strong>500+</strong> Arbeitgeber</span>
+    <span class="trust-chip"><span class="b-icon">🔒</span> DSGVO-konform</span>
+  </div>
+</div>
+
+<main>
+  <!-- ── INPUT ── -->
+  <div class="card">
+    <h2>Ihre Region analysieren</h2>
+    <p class="sub">PLZ eingeben und Berufsgruppe wählen – Ihr kostenloser Potenzial-Report wartet.</p>
+
+    <label class="field-label" for="plzInput">Postleitzahl Ihres Standorts</label>
+    <input type="text" id="plzInput" class="plz-input" placeholder="12345"
+           maxlength="5" inputmode="numeric" autocomplete="off">
+    <div class="error-msg" id="errorMsg">Bitte eine gültige 5-stellige PLZ eingeben.</div>
+
+    <div class="section-row">
+      <span class="field-label">Berufsgruppe wählen</span>
+      <button class="toggle-all" id="toggleAllBtn" onclick="toggleAll()">Alle auswählen</button>
+    </div>
+    <div class="prof-grid" id="profGrid"></div>
+
+    <div class="btn-wrap">
+      <button class="btn-calc" onclick="calculate()">🔍 Fachkräfte berechnen</button>
+    </div>
+  </div>
+
+  <!-- ── RESULTS ── -->
+  <div id="results"></div>
+
+  <!-- ── SOCIAL PROOF / GOOGLE REVIEWS ── -->
+  <div class="reviews-section" id="reviewsSection">
+    <div class="reviews-header">
+      <span class="g-logo"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></span>
+      <span class="rating-badge">
+        <span class="rating-num">4,9</span>
+        <span class="rating-stars">★★★★★</span>
+        <span style="color:var(--text-gray);font-weight:500">· Über 120 Bewertungen</span>
+      </span>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar avatar-1">TK</div>
+          <div class="review-meta">
+            <div class="review-name">Tobias Knauf</div>
+            <div class="review-date">vor einer Woche</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">„Nach kurzer Zeit hatte ich mehr als 20 Bewerber auf meine ausgeschriebene Stelle. Ich kann GreenCareers jedem Arbeitgeber und Arbeitnehmer nur empfehlen. Man investiert 30 Minuten, um seine Unternehmensdaten einzugeben, und alles läuft unkompliziert. Sollte ich nochmal einen Mitarbeiter suchen, werde ich mich sofort an GreenCareers wenden."</div>
+        <div class="review-verified">Verifizierte Google-Bewertung</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar avatar-2">BD</div>
+          <div class="review-meta">
+            <div class="review-name">Boas Diehl</div>
+            <div class="review-date">vor einer Woche</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">„Unkomplizierte Plattform, bei der es einen guten Rücklauf von mehreren Bewerbern pro Tag gegeben hat. Eine gute, unkomplizierte und offene Kommunikation der Mitarbeiter erleichtern die Zusammenarbeit! Vielen Dank für Eure Bemühungen! Die Plattform kann man weiterempfehlen!"</div>
+        <div class="review-verified">Verifizierte Google-Bewertung</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar avatar-3">AH</div>
+          <div class="review-meta">
+            <div class="review-name">Alexander Hildebrand</div>
+            <div class="review-date">vor 3 Wochen</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">„Die Zusammenarbeit mit GreenCareers war insgesamt sehr positiv. Das Team ist freundlich, kompetent und engagiert. Besonders angenehm war die offene und wertschätzende Kommunikation. Insgesamt eine gute Erfahrung – gerne wieder!"</div>
+        <div class="review-verified">Verifizierte Google-Bewertung</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar avatar-4">MT</div>
+          <div class="review-meta">
+            <div class="review-name">Maryna Türr</div>
+            <div class="review-date">vor einem Monat</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">„Gute Plattform, wo sich die Fachkräfte einfach unkompliziert bewerben können. Gute schnelle Kommunikation mit dem GreenCareers-Team."</div>
+        <div class="review-verified">Verifizierte Google-Bewertung</div>
+      </div>
+    </div>
+
+    <div class="bottom-stats">
+      <div class="bs-item"><strong>15.000+</strong><span>Fachkräfte im Pool</span></div>
+      <div class="bs-sep">·</div>
+      <div class="bs-item"><strong>Ø 34 Tage</strong><span>Besetzungsdauer</span></div>
+      <div class="bs-sep">·</div>
+      <div class="bs-item"><strong>93 %</strong><span>Empfehlungsrate</span></div>
+    </div>
+
+    <div class="made-with-love">
+      Made with <span style="color:#e63946">♥</span> in Germany für den Tiefbau
+    </div>
+  </div>
+</main>
+
+<!-- ── BOOKING MODAL ── -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-eyebrow">📅 Kostenlos & unverbindlich</div>
+    <h3>Beratungstermin sichern</h3>
+    <p class="modal-sub">Wir rufen Sie zurück und zeigen Ihnen, wie Sie mit GreenCareers die richtigen Fachkräfte finden.</p>
+    <form id="bookingForm" onsubmit="submitBooking(event)" novalidate>
+      <div class="field-group">
+        <label for="b_name">Vor- und Nachname *</label>
+        <input type="text" id="b_name" placeholder="Max Muster" required>
+      </div>
+      <div class="field-group">
+        <label for="b_firma">Unternehmensname *</label>
+        <input type="text" id="b_firma" placeholder="Muster GmbH" required>
+      </div>
+      <div class="field-group">
+        <label for="b_wa">WhatsApp-Nummer *</label>
+        <input type="tel" id="b_wa" placeholder="+49 0000 000000" required>
+      </div>
+      <div class="field-group">
+        <label for="b_email">E-Mail-Adresse *</label>
+        <input type="email" id="b_email" placeholder="max@muster.de" required>
+      </div>
+      <div class="field-group">
+        <label for="b_termin">Wann passt es Ihnen am besten? *</label>
+        <select id="b_termin" required>
+          <option value="" disabled selected>Bitte wählen…</option>
+          <option>So bald wie möglich</option>
+          <option>Diese Woche</option>
+          <option>Nächste Woche</option>
+          <option>In 2–3 Wochen</option>
+        </select>
+      </div>
+      <div class="gate-error" id="bookingError">Bitte alle Pflichtfelder ausfüllen.</div>
+      <button type="submit" class="btn-gate" style="margin-top:8px">📅 Beratungstermin jetzt sichern</button>
+      <p class="privacy-note">Kostenlos & unverbindlich. Wir melden uns innerhalb von 24 Stunden. <a href="https://www.green-careers.de/datenschutz" target="_blank">Datenschutz</a></p>
+    </form>
+  </div>
+</div>
+
+<footer>
+  © 2025 <a href="https://www.green-careers.de">GreenCareers</a> – Karriereplattform für die grüne Branche<br>
+  <span style="font-size:0.73rem">Schätzwerte basieren auf amtlichen Statistiken (Bundesagentur für Arbeit, Destatis). Keine Gewähr.</span>
+</footer>
+
+<script>
+// ═══════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════
+
+const DE_POP = 84000000;
+
+const PROFESSIONS = [
+  { id:'tiefbauer',     name:'Tiefbauer',              fullName:'Facharbeiter Tief- & Rohrleitungsbau',        icon:'⛏️', nat:70000, rate:0.16, thresh:{gut:50,mittel:20}, def:true  },
+  { id:'strassenbauer', name:'Straßen-/Asphaltbauer',  fullName:'Straßen- & Asphaltbauer',                     icon:'🛣️', nat:90000, rate:0.16, thresh:{gut:55,mittel:22}, def:false },
+  { id:'kanalbauer',    name:'Kanal-/Rohrleitungsbauer', fullName:'Kanal- & Rohrleitungsbauer',                icon:'🚧', nat:35000, rate:0.14, thresh:{gut:25,mittel:10}, def:false },
+  { id:'polier',        name:'Polier Tiefbau',         fullName:'Polier / Werkpolier Tiefbau',                 icon:'👷', nat:22000, rate:0.12, thresh:{gut:14,mittel:6},  def:false },
+  { id:'bauleiter',     name:'Bauleiter Tiefbau',      fullName:'Bauleiter Tief- & Straßenbau',                icon:'📋', nat:12000, rate:0.10, thresh:{gut:8,mittel:3},   def:false },
+];
+
+const PLZ = {
+  '01':{name:'Dresden & Umgebung',          bl:'Sachsen',               pop:850000, type:'urban'},
+  '02':{name:'Bautzen / Görlitz',           bl:'Sachsen',               pop:420000, type:'rural'},
+  '03':{name:'Cottbus / Spree-Neiße',       bl:'Brandenburg',           pop:330000, type:'rural'},
+  '04':{name:'Leipzig',                     bl:'Sachsen',               pop:920000, type:'urban'},
+  '06':{name:'Halle / Saale-Unstrut',       bl:'Sachsen-Anhalt',        pop:780000, type:'mixed'},
+  '07':{name:'Gera / Jena',                 bl:'Thüringen',             pop:450000, type:'mixed'},
+  '08':{name:'Zwickau / Vogtland',          bl:'Sachsen',               pop:680000, type:'mixed'},
+  '09':{name:'Chemnitz',                    bl:'Sachsen',               pop:380000, type:'urban'},
+  '10':{name:'Berlin Mitte',                bl:'Berlin',                pop:900000, type:'urban'},
+  '12':{name:'Berlin Süd',                  bl:'Berlin',                pop:800000, type:'urban'},
+  '13':{name:'Berlin Nord',                 bl:'Berlin',                pop:700000, type:'urban'},
+  '14':{name:'Potsdam / Berlin Südwest',    bl:'Brandenburg',           pop:650000, type:'mixed'},
+  '15':{name:'Oder-Spree / Dahme',          bl:'Brandenburg',           pop:400000, type:'rural'},
+  '16':{name:'Oberhavel / Prignitz',        bl:'Brandenburg',           pop:320000, type:'rural'},
+  '17':{name:'Neustrelitz / Ostmecklenburg',bl:'Mecklenburg-Vorpommern',pop:280000, type:'rural'},
+  '18':{name:'Rostock / Stralsund',         bl:'Mecklenburg-Vorpommern',pop:480000, type:'mixed'},
+  '19':{name:'Schwerin / Westmecklenburg',  bl:'Mecklenburg-Vorpommern',pop:320000, type:'rural'},
+  '20':{name:'Hamburg City',                bl:'Hamburg',               pop:300000, type:'urban'},
+  '21':{name:'Hamburg Süd / Harburg',       bl:'Hamburg',               pop:650000, type:'urban'},
+  '22':{name:'Hamburg West / Nord',         bl:'Hamburg',               pop:800000, type:'urban'},
+  '23':{name:'Lübeck / Ostholstein',        bl:'Schleswig-Holstein',    pop:600000, type:'mixed'},
+  '24':{name:'Kiel / Flensburg',            bl:'Schleswig-Holstein',    pop:650000, type:'mixed'},
+  '25':{name:'Nordfriesland / Dithmarschen',bl:'Schleswig-Holstein',    pop:400000, type:'rural'},
+  '26':{name:'Oldenburg / Emden',           bl:'Niedersachsen',         pop:600000, type:'mixed'},
+  '27':{name:'Bremerhaven / Rotenburg',     bl:'Niedersachsen',         pop:380000, type:'mixed'},
+  '28':{name:'Bremen',                      bl:'Bremen',                pop:560000, type:'urban'},
+  '29':{name:'Lüneburg / Uelzen',           bl:'Niedersachsen',         pop:350000, type:'rural'},
+  '30':{name:'Hannover',                    bl:'Niedersachsen',         pop:650000, type:'urban'},
+  '31':{name:'Hildesheim / Hameln',         bl:'Niedersachsen',         pop:500000, type:'mixed'},
+  '32':{name:'Herford / Minden-Lübbecke',  bl:'Nordrhein-Westfalen',   pop:450000, type:'mixed'},
+  '33':{name:'Paderborn / Bielefeld',       bl:'Nordrhein-Westfalen',   pop:700000, type:'mixed'},
+  '34':{name:'Kassel',                      bl:'Hessen',                pop:580000, type:'mixed'},
+  '35':{name:'Marburg / Gießen',            bl:'Hessen',                pop:450000, type:'mixed'},
+  '36':{name:'Fulda / Vogelsberg',          bl:'Hessen',                pop:280000, type:'rural'},
+  '37':{name:'Göttingen / Northeim',        bl:'Niedersachsen',         pop:480000, type:'mixed'},
+  '38':{name:'Braunschweig / Wolfsburg',    bl:'Niedersachsen',         pop:720000, type:'urban'},
+  '39':{name:'Magdeburg / Börde',           bl:'Sachsen-Anhalt',        pop:480000, type:'mixed'},
+  '40':{name:'Düsseldorf',                  bl:'Nordrhein-Westfalen',   pop:800000, type:'urban'},
+  '41':{name:'Mönchengladbach / Neuss',     bl:'Nordrhein-Westfalen',   pop:650000, type:'urban'},
+  '42':{name:'Wuppertal / Solingen',        bl:'Nordrhein-Westfalen',   pop:700000, type:'urban'},
+  '44':{name:'Dortmund / Bochum',           bl:'Nordrhein-Westfalen',   pop:900000, type:'urban'},
+  '45':{name:'Essen / Gelsenkirchen',       bl:'Nordrhein-Westfalen',   pop:850000, type:'urban'},
+  '46':{name:'Duisburg / Oberhausen',       bl:'Nordrhein-Westfalen',   pop:700000, type:'urban'},
+  '47':{name:'Krefeld / Kleve',             bl:'Nordrhein-Westfalen',   pop:550000, type:'mixed'},
+  '48':{name:'Münster / Steinfurt',         bl:'Nordrhein-Westfalen',   pop:550000, type:'mixed'},
+  '49':{name:'Osnabrück / Emsland',         bl:'Niedersachsen',         pop:480000, type:'mixed'},
+  '50':{name:'Köln',                        bl:'Nordrhein-Westfalen',   pop:900000, type:'urban'},
+  '51':{name:'Köln Umland / Bergisches Land',bl:'Nordrhein-Westfalen',  pop:550000, type:'mixed'},
+  '52':{name:'Aachen / Heinsberg',          bl:'Nordrhein-Westfalen',   pop:550000, type:'urban'},
+  '53':{name:'Bonn / Rhein-Sieg',           bl:'Nordrhein-Westfalen',   pop:700000, type:'urban'},
+  '54':{name:'Trier / Eifel',               bl:'Rheinland-Pfalz',       pop:380000, type:'rural'},
+  '55':{name:'Mainz / Worms',               bl:'Rheinland-Pfalz',       pop:500000, type:'mixed'},
+  '56':{name:'Koblenz / Westerwald',        bl:'Rheinland-Pfalz',       pop:480000, type:'mixed'},
+  '57':{name:'Siegerland',                  bl:'Nordrhein-Westfalen',   pop:350000, type:'mixed'},
+  '58':{name:'Hagen / Iserlohn',            bl:'Nordrhein-Westfalen',   pop:450000, type:'urban'},
+  '59':{name:'Unna / Soest / Hamm',         bl:'Nordrhein-Westfalen',   pop:550000, type:'mixed'},
+  '60':{name:'Frankfurt am Main',           bl:'Hessen',                pop:500000, type:'urban'},
+  '61':{name:'Hochtaunus / Wetterau',       bl:'Hessen',                pop:400000, type:'mixed'},
+  '63':{name:'Offenbach / Dieburg',         bl:'Hessen',                pop:600000, type:'urban'},
+  '64':{name:'Darmstadt / Bergstraße',      bl:'Hessen',                pop:450000, type:'mixed'},
+  '65':{name:'Wiesbaden / Main-Taunus',     bl:'Hessen',                pop:450000, type:'urban'},
+  '66':{name:'Saarbrücken / Saarland',      bl:'Saarland',              pop:580000, type:'urban'},
+  '67':{name:'Neustadt / Kaiserslautern',   bl:'Rheinland-Pfalz',       pop:480000, type:'mixed'},
+  '68':{name:'Mannheim / Rhein-Neckar',     bl:'Baden-Württemberg',     pop:550000, type:'urban'},
+  '69':{name:'Heidelberg / Rhein-Neckar',   bl:'Baden-Württemberg',     pop:500000, type:'urban'},
+  '70':{name:'Stuttgart',                   bl:'Baden-Württemberg',     pop:700000, type:'urban'},
+  '71':{name:'Ludwigsburg / Böblingen',     bl:'Baden-Württemberg',     pop:600000, type:'urban'},
+  '72':{name:'Reutlingen / Tübingen',       bl:'Baden-Württemberg',     pop:500000, type:'mixed'},
+  '73':{name:'Göppingen / Esslingen',       bl:'Baden-Württemberg',     pop:500000, type:'mixed'},
+  '74':{name:'Heilbronn / Hohenlohe',       bl:'Baden-Württemberg',     pop:550000, type:'mixed'},
+  '75':{name:'Pforzheim / Enzkreis',        bl:'Baden-Württemberg',     pop:380000, type:'mixed'},
+  '76':{name:'Karlsruhe / Rastatt',         bl:'Baden-Württemberg',     pop:550000, type:'urban'},
+  '77':{name:'Offenburg / Ortenaukreis',    bl:'Baden-Württemberg',     pop:380000, type:'rural'},
+  '78':{name:'Konstanz / Schwarzwald-Baar', bl:'Baden-Württemberg',     pop:380000, type:'rural'},
+  '79':{name:'Freiburg / Breisgau',         bl:'Baden-Württemberg',     pop:500000, type:'mixed'},
+  '80':{name:'München Innenstadt',          bl:'Bayern',                pop:700000, type:'urban'},
+  '81':{name:'München Ost / Pasing',        bl:'Bayern',                pop:500000, type:'urban'},
+  '82':{name:'München Süd / Starnberg',     bl:'Bayern',                pop:450000, type:'mixed'},
+  '83':{name:'Rosenheim / Chiemsee',        bl:'Bayern',                pop:380000, type:'rural'},
+  '84':{name:'Landshut / Dingolfing',       bl:'Bayern',                pop:350000, type:'rural'},
+  '85':{name:'Ingolstadt / Freising',       bl:'Bayern',                pop:480000, type:'mixed'},
+  '86':{name:'Augsburg / Schwaben',         bl:'Bayern',                pop:550000, type:'urban'},
+  '87':{name:'Kempten / Allgäu',            bl:'Bayern',                pop:350000, type:'rural'},
+  '88':{name:'Ravensburg / Bodenseekreis',  bl:'Baden-Württemberg',     pop:380000, type:'rural'},
+  '89':{name:'Ulm / Günzburg',              bl:'Bayern',                pop:380000, type:'mixed'},
+  '90':{name:'Nürnberg',                    bl:'Bayern',                pop:650000, type:'urban'},
+  '91':{name:'Erlangen / Fürth / Ansbach',  bl:'Bayern',                pop:550000, type:'mixed'},
+  '92':{name:'Amberg / Weiden / Oberpfalz', bl:'Bayern',                pop:380000, type:'rural'},
+  '93':{name:'Regensburg',                  bl:'Bayern',                pop:420000, type:'mixed'},
+  '94':{name:'Passau / Deggendorf',         bl:'Bayern',                pop:380000, type:'rural'},
+  '95':{name:'Bayreuth / Hof',              bl:'Bayern',                pop:380000, type:'rural'},
+  '96':{name:'Bamberg / Kronach',           bl:'Bayern',                pop:350000, type:'rural'},
+  '97':{name:'Würzburg / Schweinfurt',      bl:'Bayern',                pop:550000, type:'mixed'},
+  '98':{name:'Suhl / Sonneberg',            bl:'Thüringen',             pop:250000, type:'rural'},
+  '99':{name:'Erfurt / Weimar',             bl:'Thüringen',             pop:550000, type:'mixed'},
+};
+
+// ═══════════════════════════════════════
+// BUILD CHECKBOXES
+// ═══════════════════════════════════════
+
+const profGrid = document.getElementById('profGrid');
+PROFESSIONS.forEach(p => {
+  const div = document.createElement('div');
+  div.className = 'prof-check' + (p.def ? ' active' : '');
+  div.dataset.id = p.id;
+  div.innerHTML = `
+    <input type="checkbox" id="chk_${p.id}" ${p.def ? 'checked' : ''}>
+    <span class="p-icon">${p.icon}</span>
+    <span class="p-name">${p.fullName}</span>`;
+  div.addEventListener('click', function(e) {
+    if (e.target.tagName !== 'INPUT') {
+      const cb = this.querySelector('input'); cb.checked = !cb.checked;
+    }
+    this.classList.toggle('active', this.querySelector('input').checked);
+    updateToggleBtn();
+  });
+  profGrid.appendChild(div);
+});
+
+function updateToggleBtn() {
+  const all = [...profGrid.querySelectorAll('input')];
+  document.getElementById('toggleAllBtn').textContent =
+    all.every(c => c.checked) ? 'Alle abwählen' : 'Alle auswählen';
+}
+function toggleAll() {
+  const all = [...profGrid.querySelectorAll('input')];
+  const allChecked = all.every(c => c.checked);
+  all.forEach(cb => { cb.checked = !allChecked; cb.closest('.prof-check').classList.toggle('active', !allChecked); });
+  updateToggleBtn();
+}
+
+// ═══════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════
+
+const AVG_ZONES = 90;
+
+function getScore(v, t) { return v >= t.gut ? 'gut' : v >= t.mittel ? 'mittel' : 'schwach'; }
+function overallScore(scores) {
+  const c = {gut:0,mittel:0,schwach:0}; scores.forEach(s=>c[s]++);
+  const n = scores.length;
+  if (c.gut    >= Math.ceil(n*0.6)) return 'gut';
+  if (c.schwach >= Math.ceil(n*0.6)) return 'schwach';
+  return 'mittel';
+}
+
+const SCORE_ICON  = {gut:'✅', mittel:'⚠️', schwach:'⛔'};
+const SCORE_LABEL = {gut:'Gut', mittel:'Mittel', schwach:'Schwach'};
+const SCORE_COLOR = {gut:'var(--score-gut)', mittel:'#f39c12', schwach:'var(--score-schwach)'};
+const SCORE_BG    = {gut:'var(--score-gut-bg)', mittel:'var(--score-mittel-bg)', schwach:'var(--score-schwach-bg)'};
+
+const OVERALL_COPY = {
+  gut:    {h:'Sehr guter Standort für Personalgewinnung',       p:'Ihr Standort bietet überdurchschnittlich viele erreichbare Fachkräfte – die Chancen stehen sehr gut.'},
+  mittel: {h:'Solider Standort – mit der richtigen Strategie',   p:'Mit gezielter Ansprache lässt sich in Ihrer Region ein ausreichender Kandidatenpool erschließen.'},
+  schwach:{h:'Herausfordernder Standort – aktives Recruiting nötig', p:'Fachkräfte sind in Ihrer Region knapp. Überregionale Ansprache und aktives Recruiting sind wichtig.'},
+};
+
+const TYPE_LABELS = {urban:'🏙️ Urban', mixed:'🏘️ Gemischt', rural:'🌄 Ländlich'};
+const COMP_LABELS = {urban:'🔥 Hoch', mixed:'⚡ Mittel', rural:'✅ Gering'};
+
+function scoreText(s, r, n) {
+  return ({
+    gut:    `Gutes Potenzial: In ${r} befinden sich überdurchschnittlich viele ${n} im GreenCareers-Bewerberpool.`,
+    mittel: `Mittleres Potenzial: Im GreenCareers-Pool stehen für ${r} ausreichend ${n} zur Verfügung – mit gezielter Kampagne erreichbar.`,
+    schwach:`Begrenztes Potenzial: ${n} sind im GreenCareers-Pool für ${r} aktuell rar. Eine überregionale Kampagne erschließt weiteres Potenzial.`,
+  })[s];
+}
+
+function countUp(el, target, dur) {
+  let val = 0; const step = target / (dur/16);
+  const t = setInterval(()=>{
+    val = Math.min(val+step, target);
+    el.textContent = Math.round(val).toLocaleString('de-DE');
+    if (val>=target) clearInterval(t);
+  }, 16);
+}
+
+function getTips(region, selIds, overallS) {
+  const tips = [];
+  if (region.type==='urban') tips.push({i:'🏙️', t:'Großstadtregion: Hoher Wettbewerb um Talente. Schnelle Prozesse, Benefits und ein starkes Arbeitgeberprofil sind entscheidend.'});
+  else if (region.type==='rural') tips.push({i:'🌄', t:'Ländliche Region: Kandidaten sind lokal verwurzelt. Stabilität, Teamkultur und flexible Arbeitszeiten überzeugen am meisten.'});
+  else tips.push({i:'🏘️', t:'Gemischte Region: Work-Life-Balance und regionaler Bezug sind die stärksten Argumente für Kandidaten.'});
+  if (selIds.includes('tiefbauer')||selIds.includes('strassenbauer')||selIds.includes('kanalbauer'))
+    tips.push({i:'🎓', t:'Kooperationen mit Berufsschulen und überbetrieblichen Ausbildungszentren der Bauwirtschaft erhöhen Ihr Kandidatenpotenzial langfristig.'});
+  if (selIds.includes('bauleiter')||selIds.includes('polier'))
+    tips.push({i:'📈', t:'Poliere und Bauleiter wechseln fast nur auf deutlich bessere Konditionen. Gehalt und Entwicklungsperspektive klar benennen.'});
+  if (selIds.includes('strassenbauer')||selIds.includes('tiefbauer')||selIds.includes('kanalbauer'))
+    tips.push({i:'🔧', t:'Im Straßen- und Tiefbau erhöhen klare Gehaltsangaben in der Anzeige die Bewerbungsrate nachweislich um bis zu 40 %.'});
+  if (overallS==='schwach')
+    tips.push({i:'🗺️', t:'Erweitern Sie Ihren Suchradius: Fachkräfte aus Nachbarregionen sind oft mobil und wechselbereit.'});
+  tips.push({i:'📱', t:'Der GreenCareers-Bewerberpool wächst täglich: Über Social-Media-Werbung kommen laufend neue, wechselbereite Fachkräfte hinzu – auch solche, die kein klassisches Jobportal nutzen.'});
+  return tips;
+}
+
+function getStrategy(region, selIds, overallS) {
+  const steps = [];
+  steps.push({h:'Attraktive Stellenanzeige erstellen', t:'Echte Einblicke in den Arbeitsalltag, Bilder und Mitarbeiterstimmen erhöhen die Bewerbungsrate um bis zu 60 %.'});
+  if (region.type==='urban') steps.push({h:'Reaktionszeit unter 24 Stunden', t:'In städtischen Märkten entscheiden Bewerber schnell – wer sofort antwortet, sichert sich den Kandidaten.'});
+  else steps.push({h:'Persönliche Ansprache betonen', t:'In ländlichen Regionen wirkt Direktkontakt und regionale Nähe. Nennen Sie konkrete Ansprechpartner.'});
+  steps.push({h:'Gehalt transparent kommunizieren', t:'Anzeigen mit Gehaltsangabe erhalten branchenübergreifend 3× mehr Bewerbungen.'});
+  if (overallS==='schwach') steps.push({h:'Überregionale Kampagne schalten', t:'Bei knappem lokalem Pool: GreenCareers-Anzeigen können gezielt in Nachbarregionen ausgespielt werden.'});
+  steps.push({h:'Employer Branding aufbauen', t:'Fachkräfte, die Ihren Namen kennen, bewerben sich eher – GreenCareers unterstützt Sie beim Aufbau.'});
+  return steps;
+}
+
+function getBesetzungsdauer(score, region) {
+  const base = score==='gut' ? 4 : score==='mittel' ? 8 : 14;
+  const adj  = region.type==='urban' ? -1 : region.type==='rural' ? 2 : 0;
+  return Math.max(2, base+adj);
+}
+
+// ═══════════════════════════════════════
+// CALCULATE
+// ═══════════════════════════════════════
+
+let _data = null;
+
+// PLZ → echter Ort via Zippopotam.us-API (kostenlos, kein Key, ~16k DE-PLZ).
+// Fallback: 2-stellige Region-DB (PLZ-const).
+// Ergebnis: { ort, bundesland, plz } — ort/bundesland kann null sein.
+async function lookupPLZ(plz5) {
+  try {
+    const r = await fetch(`https://api.zippopotam.us/de/${plz5}`, { method: 'GET' });
+    if (!r.ok) throw new Error('plz not found');
+    const data = await r.json();
+    const place = data.places && data.places[0];
+    if (!place) throw new Error('no place');
+    return {
+      ort: place['place name'] || null,
+      bundesland: place['state'] || null,
+      plz: plz5,
+      _source: 'api'
+    };
+  } catch (e) {
+    return { ort: null, bundesland: null, plz: plz5, _source: 'fallback' };
+  }
+}
+
+async function calculate() {
+  const plzRaw = document.getElementById('plzInput').value.trim();
+  const errEl  = document.getElementById('errorMsg');
+  const btnEl  = document.querySelector('.btn-calc');
+
+  if (!/^\d{5}$/.test(plzRaw)) { errEl.textContent='Bitte eine gültige 5-stellige PLZ eingeben.'; errEl.style.display='block'; return; }
+  const prefix = plzRaw.substring(0,2);
+  const region = PLZ[prefix];
+  if (!region) { errEl.textContent=`PLZ ${plzRaw} konnte keiner Region zugeordnet werden.`; errEl.style.display='block'; return; }
+
+  const selIds = PROFESSIONS.filter(p=>document.getElementById('chk_'+p.id)?.checked).map(p=>p.id);
+  if (!selIds.length) { errEl.textContent='Bitte mindestens eine Berufsgruppe wählen.'; errEl.style.display='block'; return; }
+  errEl.style.display='none';
+
+  // PLZ-Lookup parallel zur Berechnung (Result wird in _data übernommen)
+  const originalBtnText = btnEl ? btnEl.textContent : '';
+  if (btnEl) { btnEl.disabled = true; btnEl.textContent = 'Region wird ermittelt…'; }
+  const plzLookup = await lookupPLZ(plzRaw);
+  if (btnEl) { btnEl.disabled = false; btnEl.textContent = originalBtnText; }
+
+  // Region-Display verbessern: echter Ort aus API, fallback auf 2-stellige Region-DB
+  region.displayName = plzLookup.ort
+    ? (plzLookup.bundesland ? `${plzLookup.ort}` : plzLookup.ort)
+    : region.name;
+  region.displayBL = plzLookup.bundesland || region.bl;
+  region.realCity = plzLookup.ort;
+  region.plzSource = plzLookup._source;
+
+  const selProfs = PROFESSIONS.filter(p=>selIds.includes(p.id));
+  const results  = selProfs.map(p=>{
+    const avail  = Math.max(1, Math.round((region.pop/DE_POP)*p.nat*p.rate));
+    const natAvg = Math.round(p.nat*p.rate/AVG_ZONES);
+    const pct    = Math.round((avail/(natAvg||1))*100);
+    return {p, avail, natAvg, pct, score:getScore(avail,p.thresh)};
+  });
+
+  const overall = overallScore(results.map(r=>r.score));
+  const total   = results.reduce((s,r)=>s+r.avail, 0);
+  const dauer   = getBesetzungsdauer(overall, region);
+  _data = {plzRaw, region, results, overall, total, selIds, dauer};
+
+  const oc = OVERALL_COPY[overall];
+
+  // Personalisierte Region-Insight (1 starker Satz, je nach Score + Region-Typ)
+  const regionInsight = (() => {
+    if (overall === 'gut' && region.type === 'urban') {
+      return `In <strong>${region.displayName}</strong> ist der Pool überdurchschnittlich gut bestückt – allerdings ist auch der Wettbewerb um Talente hoch. Wer schnell und gezielt anspricht, hat klare Vorteile.`;
+    }
+    if (overall === 'gut') {
+      return `<strong>${region.displayName}</strong> gehört zu den Regionen mit überdurchschnittlich vielen erreichbaren Fachkräften. Die Kandidaten sind da – sie müssen nur richtig angesprochen werden.`;
+    }
+    if (overall === 'mittel' && region.type === 'rural') {
+      return `In ländlichen Regionen wie <strong>${region.displayName}</strong> sind Fachkräfte oft schon gebunden. Mit aktiver Ansprache und überregionaler Sichtbarkeit lassen sich Wechselbereite trotzdem erschließen.`;
+    }
+    if (overall === 'mittel') {
+      return `<strong>${region.displayName}</strong> ist ein durchschnittlicher Markt – kein Selbstläufer, aber mit der richtigen Strategie absolut gut besetzbar.`;
+    }
+    return `In <strong>${region.displayName}</strong> ist der Markt aktuell angespannt. Eine rein lokale Suche reicht meist nicht – überregionale Kampagnen erschließen den verdeckten Markt.`;
+  })();
+
+  // Blurred mini-cards für lock-peek (zeigt was hinter Gate ist)
+  const peekCards = results.map(r => `
+    <div style="background:#fff;border-radius:12px;padding:14px 16px;border-top:4px solid ${SCORE_COLOR[r.score]};margin-bottom:10px">
+      <div style="font-size:1.4rem;margin-bottom:4px">${r.p.icon}</div>
+      <div style="font-size:0.75rem;color:#546e5a;margin-bottom:2px">${r.p.fullName}</div>
+      <div style="font-size:2rem;font-weight:900;line-height:1">${r.avail}</div>
+      <div style="font-size:0.72rem;color:#888;margin-bottom:8px">im GreenCareers-Bewerberpool</div>
+      <span style="display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-size:0.75rem;font-weight:800;background:${SCORE_BG[r.score]};color:${SCORE_COLOR[r.score]}">${SCORE_ICON[r.score]} ${SCORE_LABEL[r.score]}</span>
+    </div>`).join('');
+
+  const resEl = document.getElementById('results');
+  resEl.innerHTML = `<div class="fade-up">
+
+    <!-- Region header -->
+    <div class="results-header">
+      <div class="rh-label">Analyse für PLZ</div>
+      <div class="rh-name">${region.displayName}</div>
+      <div class="rh-meta">
+        <span class="rh-bl">${region.displayBL}</span>
+        <span class="rh-plz">${plzRaw}</span>
+      </div>
+    </div>
+
+    <!-- Overall score -->
+    <div class="overall-box" style="background:${SCORE_BG[overall]};border-color:${SCORE_COLOR[overall]}">
+      <div class="ob-icon">${SCORE_ICON[overall]}</div>
+      <div>
+        <h3 style="color:${SCORE_COLOR[overall]}">${oc.h}</h3>
+        <p>${oc.p}</p>
+      </div>
+    </div>
+
+    <!-- Teaser: big number -->
+    <div class="teaser-highlight">
+      <div class="th-label">Im GreenCareers-Bewerberpool für ${region.displayName}</div>
+      <div class="th-number" id="teaserNum">–</div>
+      <div class="th-unit">Fachkräfte aus unserem Pool – exklusiv für Sie als Arbeitgeber verfügbar</div>
+    </div>
+
+    <!-- NEU: Regionale Marktanalyse (vorher hidden, jetzt vorne als Wert) -->
+    <div class="open-section">
+      <div class="os-title">📊 Regionale Marktanalyse</div>
+      <div class="os-grid">
+        <div class="os-box">
+          <div class="os-label">Einwohner PLZ-Gebiet</div>
+          <div class="os-value">${region.pop.toLocaleString('de-DE')}</div>
+        </div>
+        <div class="os-box">
+          <div class="os-label">Regionstyp</div>
+          <div class="os-value">${TYPE_LABELS[region.type]}</div>
+        </div>
+        <div class="os-box">
+          <div class="os-label">Wettbewerb um Talente</div>
+          <div class="os-value">${COMP_LABELS[region.type]}</div>
+        </div>
+        <div class="os-box">
+          <div class="os-label">Marktlage Recruiting</div>
+          <div class="os-value">${overall==='gut' ? '🟢 Günstig' : overall==='mittel' ? '🟡 Moderat' : '🔴 Anspruchsvoll'}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEU: Personalisierte Region-Insight (1 starker Satz) -->
+    <div class="insight-card">
+      <div class="ic-header">💡 Unsere Einschätzung für ${region.displayName}</div>
+      <div class="ic-body">${regionInsight}</div>
+    </div>
+
+    <!-- Unlock-CTA: was kommt im Report -->
+    <div class="unlock-hero" id="unlockHero">
+      <div class="unlock-hero-eyebrow">🔓 Vollanalyse mit Strategie freischalten</div>
+      <h3>Was gibt's im Vollreport zusätzlich?</h3>
+      <ul class="unlock-list">
+        <li><span class="ul-check">✓</span><div><strong>Detail-Aufschlüsselung pro Berufsgruppe</strong>Vergleich zum Bundesdurchschnitt</div></li>
+        <li><span class="ul-check">✓</span><div><strong>Besetzungsdauer in Wochen</strong>Konkrete Zeitleiste für ${region.displayName}</div></li>
+        <li><span class="ul-check">✓</span><div><strong>Cost-per-Hire Schätzung</strong>Realistischer Aufwand pro Einstellung</div></li>
+        <li><span class="ul-check">✓</span><div><strong>3–5 Recruiting-Strategien</strong>Speziell auf Ihre Region zugeschnitten</div></li>
+        <li><span class="ul-check">✓</span><div><strong>Standort-Tipps</strong>Konkrete Handlungsempfehlungen</div></li>
+      </ul>
+      <button type="button" class="btn-unlock" id="btnOpenQuiz" onclick="openQuiz()">Gesamten Standort-Report freischalten</button>
+      <div class="unlock-hero-trust">
+        <span>🔒 Kein Spam</span>
+        <span>· DSGVO-konform</span>
+        <span>· Sofort verfügbar</span>
+      </div>
+    </div>
+
+    <!-- Lock peek: blurred mini-cards -->
+    <div class="lock-peek">
+      <div class="lock-peek-inner">${peekCards}${peekCards}</div>
+      <div class="lock-peek-fade"></div>
+      <div class="lock-badge-wrap">
+        <div class="lock-badge">🎁 Detailanalyse + Strategie + Cost-per-Hire</div>
+        <div class="lock-badge-sub">↑ Oben freischalten – nur 3 Felder.</div>
+      </div>
+    </div>
+
+    <!-- Quiz-Container (initial geschlossen, öffnet bei Klick auf Unlock-CTA) -->
+    <div class="quiz-container" id="quizContainer">
+      <div class="quiz-progress">
+        <div class="quiz-progress-label" id="quizProgressLabel">Schritt 1 von 3</div>
+        <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgressFill" style="width:33%"></div></div>
+      </div>
+
+      <form id="leadForm" novalidate onsubmit="return false;">
+
+        <!-- ===== STEP 1 / 3 — E-Mail-Gate (mit Personalisierung aus PLZ) ===== -->
+        <div class="quiz-slide is-active" data-slide="1">
+          <h3 class="quiz-question" id="quizStep1Headline">Wohin senden wir Ihren Vollreport?</h3>
+          <p class="quiz-subtext" id="quizStep1Sub">Tragen Sie Ihre geschäftliche E-Mail-Adresse ein — wir schalten Ihre Vollanalyse sofort frei.</p>
+          <div class="quiz-input-group">
+            <div class="quiz-input-wrap">
+              <svg class="quiz-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <input type="email" class="quiz-input" id="qzEmail" placeholder="ihre@firma.de" autocomplete="email" autocapitalize="none" spellcheck="false" inputmode="email">
+            </div>
+          </div>
+          <button type="button" class="quiz-cta" id="qzStep1Cta">Weiter →</button>
+          <div class="quiz-error-msg" id="qzStep1Error">Bitte tragen Sie eine gültige E-Mail-Adresse ein.</div>
+        </div>
+
+        <!-- ===== STEP 2 / 3 — Name + (progressive) Firma ===== -->
+        <div class="quiz-slide" data-slide="2">
+          <h3 class="quiz-question">Für welchen Betrieb erstellen wir den Report?</h3>
+          <p class="quiz-subtext">Damit der Report persönlich auf Sie zugeschnitten ist.</p>
+
+          <div class="quiz-input-group" data-substep="name">
+            <div class="quiz-input-wrap">
+              <svg class="quiz-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <input type="text" class="quiz-input" id="qzFullname" placeholder="Vor- und Nachname" autocomplete="name" autocapitalize="words" spellcheck="false">
+            </div>
+          </div>
+
+          <div class="quiz-input-group" data-substep="firma" style="display:none;">
+            <div class="quiz-input-wrap">
+              <svg class="quiz-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>
+              <input type="text" class="quiz-input" id="qzFirma" placeholder="Name Ihres Betriebs" autocomplete="organization" autocapitalize="words" spellcheck="false">
+            </div>
+          </div>
+
+          <button type="button" class="quiz-cta" id="qzStep2Cta" disabled>Weiter →</button>
+          <div class="quiz-error-msg" id="qzStep2Error">Bitte Vor- und Nachname sowie Firma eingeben.</div>
+          <button type="button" class="quiz-back" data-back="1">← Zurück</button>
+        </div>
+
+        <!-- ===== STEP 3 / 3 — Telefon + DSGVO + Submit ===== -->
+        <div class="quiz-slide" data-slide="3">
+          <h3 class="quiz-question">Letzter Schritt — wie erreichen wir Sie?</h3>
+          <p class="quiz-subtext">Damit wir bei Rückfragen direkt anrufen können. Kein Verkaufsanruf — nur falls Sie inhaltliche Fragen zum Report haben.</p>
+
+          <div class="quiz-input-group">
+            <div class="quiz-phone-wrap">
+              <span class="quiz-phone-flag">🇩🇪 +49</span>
+              <input type="tel" class="quiz-input" id="qzPhone" placeholder="170 1234567" autocomplete="tel" inputmode="tel">
+            </div>
+          </div>
+
+          <div class="quiz-privacy">
+            <input type="checkbox" id="qzPrivacy">
+            <label for="qzPrivacy">Ich stimme der <a href="https://www.green-careers.de/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a> zu und bin einverstanden, von GreenCareers kontaktiert zu werden. Die Einwilligung kann jederzeit widerrufen werden.</label>
+          </div>
+
+          <button type="button" class="quiz-cta" id="qzFinalSubmit" disabled>🔓 Report jetzt freischalten</button>
+          <div class="quiz-error-msg" id="qzStep3Error">Bitte Telefonnummer und Datenschutz-Zustimmung ausfüllen.</div>
+
+          <div class="quiz-trust-row">
+            <span><span class="quiz-trust-dot"></span> SSL-verschlüsselt</span>
+            <span><span class="quiz-trust-dot"></span> DSGVO-konform</span>
+            <span><span class="quiz-trust-dot"></span> Keine Weitergabe</span>
+          </div>
+          <button type="button" class="quiz-back" data-back="2">← Zurück</button>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Full report (shown after unlock) -->
+    <div id="fullReport"></div>
+
+  </div>`;
+  resEl.style.display = 'block';
+
+  setTimeout(()=>{
+    const el = document.getElementById('teaserNum');
+    if (el) countUp(el, total, 900);
+    resEl.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 80);
+}
+
+// ═══════════════════════════════════════
+// BUILD FULL REPORT
+// ═══════════════════════════════════════
+
+function buildReport(data, animate) {
+  const {region, results, overall, selIds, dauer} = data;
+  const tips     = getTips(region, selIds, overall);
+  const strategy = getStrategy(region, selIds, overall);
+  const besetz   = overall==='gut' ? '🟢 Günstig' : overall==='mittel' ? '🟡 Moderat' : '🔴 Anspruchsvoll';
+  let html = '';
+
+  // Profession cards
+  html += `<div class="prof-results-grid">`;
+  results.forEach((r,i)=>{
+    const barW = Math.min(100, Math.max(5, r.pct));
+    const diff = r.pct-100;
+    const cc   = diff>=10 ? 'var(--score-gut)' : diff<=-10 ? 'var(--score-schwach)' : '#888';
+    const ct   = diff>=10 ? `+${diff} % über Ø` : diff<=-10 ? `${Math.abs(diff)} % unter Ø` : 'Ø Bundesdurchschnitt';
+    html += `
+      <div class="prof-card ${r.score}">
+        <div class="pc-icon">${r.p.icon}</div>
+        <div class="pc-title">${r.p.fullName}</div>
+        <div class="pc-number" ${animate?`id="rn_${i}"`:''}>${animate?'–':r.avail.toLocaleString('de-DE')}</div>
+        <div class="pc-unit">im GreenCareers-Bewerberpool verfügbar</div>
+        <span class="score-pill ${r.score}">${SCORE_ICON[r.score]} ${SCORE_LABEL[r.score]}</span>
+        <div class="comp-bar-label"><span>Lokal</span><span>Ø Bund</span><span>Top</span></div>
+        <div class="comp-bar-track">
+          <div class="comp-bar-national"></div>
+          <div class="comp-bar-fill" ${animate?`data-w="${barW}%" style="width:0%"`:`style="width:${barW}%"`}></div>
+        </div>
+        <div class="pc-compare" style="color:${cc}">${ct}</div>
+        <div class="pc-desc">${scoreText(r.score,region.displayName,r.p.name)}</div>
+      </div>`;
+  });
+  html += `</div>`;
+
+  // (Regionale Marktanalyse ist jetzt vorne im Lock-Screen sichtbar – nicht hier wiederholen)
+
+  // Cost-per-Hire Schätzung (NEU: greift Region-Typ + Score auf)
+  const cphBase = region.type === 'urban' ? 2400 : region.type === 'mixed' ? 1900 : 1500;
+  const cphFactor = overall === 'gut' ? 0.85 : overall === 'mittel' ? 1.0 : 1.35;
+  const cphLow  = Math.round((cphBase * cphFactor) / 100) * 100;
+  const cphHigh = Math.round((cphBase * cphFactor * 1.6) / 100) * 100;
+
+  html += `
+    <div class="report-section">
+      <div class="rs-title">💰 Cost-per-Hire Schätzung für ${region.displayName}</div>
+      <div class="cph-card">
+        <div class="cph-range">€${cphLow.toLocaleString('de-DE')}<span class="cph-sep">–</span>€${cphHigh.toLocaleString('de-DE')}</div>
+        <div class="cph-label">Geschätzter Aufwand pro erfolgreich besetzter Stelle</div>
+        <div class="cph-note">Basierend auf Regionstyp (${TYPE_LABELS[region.type]}) und Marktlage (${besetz}). Klassische Stellenanzeigen liegen je nach Plattform bei €1.200–€3.500 ohne Erfolgsgarantie. Vergleichswerte über Personalvermittlungen meist 25–30 % des Jahresgehalts.</div>
+      </div>
+    </div>`;
+
+  // Timeline
+  html += `
+    <div class="report-section">
+      <div class="rs-title">⏱️ Besetzungsdauer in Ihrer Region</div>
+      <div class="timeline">
+        <div class="tl-row"><div class="tl-dot"></div><div><div class="tl-label">Stellenanzeige schalten</div><div class="tl-sub">Tag 1 – Aktive Social-Media-Werbung über GreenCareers</div></div></div>
+        <div class="tl-row"><div class="tl-dot"></div><div><div class="tl-label">Erste Bewerbungen</div><div class="tl-sub">Ø nach 3–7 Tagen (${region.displayName})</div></div></div>
+        <div class="tl-row"><div class="tl-dot"></div><div><div class="tl-label">Gesprächsrunde & Auswahl</div><div class="tl-sub">Woche 2–3 – Vorausgefilterte Kandidaten</div></div></div>
+        <div class="tl-row"><div class="tl-dot" style="background:${SCORE_COLOR[overall]}"></div><div>
+          <div class="tl-label" style="color:${SCORE_COLOR[overall]}">Ziel: Besetzung in ca. ${dauer} Wochen</div>
+          <div class="tl-sub">Basierend auf Standorttyp und Marktlage in ${region.displayName}</div>
+        </div></div>
+      </div>
+    </div>`;
+
+  // Strategy
+  html += `
+    <div class="report-section">
+      <div class="rs-title">🎯 Ihre Recruiting-Strategie in ${strategy.length} Schritten</div>
+      <div class="strategy-grid">
+        ${strategy.map((s,i)=>`
+          <div class="strategy-item">
+            <div class="si-num">${i+1}</div>
+            <div class="si-text"><strong>${s.h}</strong>${s.t}</div>
+          </div>`).join('')}
+      </div>
+    </div>`;
+
+  // Tips
+  html += `
+    <div class="report-section">
+      <div class="rs-title">💡 Empfehlungen für Ihren Standort</div>
+      <ul class="tips-list">
+        ${tips.map(t=>`<li><span class="ti">${t.i}</span><span>${t.t}</span></li>`).join('')}
+      </ul>
+    </div>`;
+
+  // Disclaimer
+  html += `<div class="disclaimer">ℹ️ <strong>Datengrundlage:</strong> Berechnung auf Basis der Beschäftigtenstatistik der Bundesagentur für Arbeit (Stand Q3 2025) und der Erhebung zu sozialversicherungspflichtig Beschäftigten in den Branchencodes 42.11 (Bau von Straßen), 42.21 (Leitungstiefbau und Kläranlagenbau) sowie 42.99 (Sonstiger Tiefbau a. n. g.). Gewichtet nach Einwohnerzahl der jeweiligen PLZ-Region (Destatis 2024). Als wechselbereit gelten Fachkräfte, die laut LinkedIn-Studie „Workforce Confidence Index 2024" eine aktive Wechselabsicht innerhalb der nächsten 6 Monate angeben (12 % im Tiefbau).</div>`;
+
+  // CTA
+  html += `
+    <div class="cta-box">
+      <h3>Jetzt Stelle gezielt besetzen</h3>
+      <p>GreenCareers – spezialisierte Karriereplattform für die grüne Branche. Aktive Social-Media-Werbung, KI-Filterung, direkte Kandidatenansprache.</p>
+      <button onclick="openModal()" class="btn-cta" style="border:none;cursor:pointer">📅 Beratungstermin sichern</button>
+    </div>`;
+
+  return html;
+}
+
+// ═══════════════════════════════════════
+// UNLOCK
+// ═══════════════════════════════════════
+
+// ═══════════════════════════════════════
+// QUIZ-FUNNEL ENGINE (ersetzt das alte 7-Felder-Form)
+// ═══════════════════════════════════════
+
+// ═══════════════════════════════════════
+// FUNNEL-TRACKING ans GC-Dashboard (1st-Party, analog beratung-tiefbau)
+// ═══════════════════════════════════════
+const FUNNEL_LANDINGPAGE_ID = 'bewerberpool-kalkulator-tiefbau';
+const FUNNEL_EVENT_ENDPOINT = 'https://gc-tracking-dashboard.vercel.app/api/recruiting/funnel-event';
+
+// Session-ID für Korrelation Lead ↔ Funnel-Steps (UUID, persistiert in localStorage)
+function _uuidv4() {
+  if (window.crypto && window.crypto.randomUUID) return window.crypto.randomUUID();
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+    const r = Math.random() * 16 | 0;
+    const v = c === 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
+let _funnelSessionId;
+try {
+  _funnelSessionId = localStorage.getItem('gc_quiz_session_' + FUNNEL_LANDINGPAGE_ID);
+  if (!_funnelSessionId) {
+    _funnelSessionId = _uuidv4();
+    localStorage.setItem('gc_quiz_session_' + FUNNEL_LANDINGPAGE_ID, _funnelSessionId);
+  }
+} catch(e) { _funnelSessionId = _uuidv4(); }
+
+// URL-Tracking für UTM/Click-IDs (zusätzlich zu existing captureAttribution)
+const _funnelUrlParams = new URLSearchParams(window.location.search);
+const _funnelTrackingParams = {
+  utm_source:   _funnelUrlParams.get('utm_source')   || '',
+  utm_medium:   _funnelUrlParams.get('utm_medium')   || '',
+  utm_campaign: _funnelUrlParams.get('utm_campaign') || '',
+  utm_content:  _funnelUrlParams.get('utm_content')  || '',
+  utm_term:     _funnelUrlParams.get('utm_term')     || '',
+  fbclid:       _funnelUrlParams.get('fbclid')       || '',
+  gclid:        _funnelUrlParams.get('gclid')        || ''
+};
+
+const _funnelTrackedSlides = new Set();
+function trackFunnelEvent(eventType, slideId) {
+  // Slide-Views nur einmal pro Session feuern (Drop-off-Analytics sauber)
+  const trackKey = eventType + ':' + (slideId || '');
+  if (eventType === 'slide_view' && _funnelTrackedSlides.has(trackKey)) return;
+  _funnelTrackedSlides.add(trackKey);
+  const body = {
+    session_id: _funnelSessionId,
+    event_type: eventType,
+    slide_id: slideId || null,
+    landingpage_id: FUNNEL_LANDINGPAGE_ID,
+    ..._funnelTrackingParams,
+    page_url: window.location.href,
+    referrer: document.referrer || '',
+    user_agent: navigator.userAgent
+  };
+  try {
+    fetch(FUNNEL_EVENT_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+      keepalive: true,
+      credentials: 'omit'
+    }).catch(() => { /* tracking darf den Funnel nie brechen */ });
+  } catch(e) { /* silent */ }
+}
+// LP-View beim allerersten Page-Load tracken
+trackFunnelEvent('lp_view', null);
+
+const _quizAnswers = {
+  anrede: '',
+  mitarbeiter: '',
+  email: '',
+  vorname: '',
+  nachname: '',
+  firma: '',
+  whatsapp: ''
+};
+
+function openQuiz() {
+  const container = document.getElementById('quizContainer');
+  const cta = document.getElementById('btnOpenQuiz');
+  if (!container) return;
+  container.classList.add('is-open');
+  if (cta) cta.disabled = true;
+  // Personalisierungs-Headline für Step 1 setzen (PLZ + Region)
+  personalizeStep1();
+  initQuizListeners();
+  setTimeout(() => {
+    container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 80);
+  // Pixel: Quiz gestartet (= Engagement-Lead)
+  if (typeof fbq !== 'undefined') fbq('trackCustom', 'Quiz_Started', { landingpage: 'bewerberpool-kalkulator-tiefbau' });
+  // Funnel-Tracking: Step 1 Slide-View (initialer Zustand)
+  trackFunnelEvent('slide_view', '1');
+  // Step 1 Email auto-focus für sofortigen Tipp-Start
+  setTimeout(() => {
+    const emailEl = document.getElementById('qzEmail');
+    if (emailEl) emailEl.focus();
+  }, 350);
+}
+
+let _quizListenersInitialized = false;
+function initQuizListeners() {
+  if (_quizListenersInitialized) return;
+  _quizListenersInitialized = true;
+
+  const slides = Array.from(document.querySelectorAll('.quiz-slide'));
+  const TOTAL = 3;
+  const fill   = document.getElementById('quizProgressFill');
+  const label  = document.getElementById('quizProgressLabel');
+
+  function showSlide(n) {
+    slides.forEach(s => s.classList.remove('is-active'));
+    const t = slides.find(s => s.dataset.slide === String(n));
+    if (t) t.classList.add('is-active');
+    fill.style.width = (n / TOTAL * 100) + '%';
+    label.textContent = `Schritt ${n} von ${TOTAL}`;
+    document.getElementById('quizContainer').scrollIntoView({ behavior:'smooth', block:'start' });
+    // Pixel-Tracking pro Step
+    if (typeof fbq !== 'undefined') fbq('trackCustom', 'Quiz_Step_' + n + '_Viewed', { landingpage: 'bewerberpool-kalkulator-tiefbau' });
+    // Funnel-Tracking ans GC-Dashboard
+    trackFunnelEvent('slide_view', String(n));
+  }
+
+  // Back-Buttons
+  document.querySelectorAll('.quiz-back').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const t = parseInt(btn.dataset.back, 10);
+      if (t) showSlide(t);
+    });
+  });
+
+  // Step 1: E-Mail → Step 2
+  const emailEl = document.getElementById('qzEmail');
+  const step1Cta = document.getElementById('qzStep1Cta');
+  const step1Err = document.getElementById('qzStep1Error');
+  step1Cta.addEventListener('click', () => {
+    const v = emailEl.value.trim();
+    const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    if (!ok) { emailEl.classList.add('is-error'); step1Err.classList.add('active'); return; }
+    emailEl.classList.remove('is-error'); step1Err.classList.remove('active');
+    _quizAnswers.email = v;
+    if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'Kalkulator-Quiz E-Mail erhalten' });
+    showSlide(2);
+  });
+  emailEl.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); step1Cta.click(); }});
+  emailEl.addEventListener('input', () => emailEl.classList.remove('is-error'));
+
+  // Step 2: Name → reveal Firma → Step 3
+  const nameEl = document.getElementById('qzFullname');
+  const firmaSubstep = document.querySelector('[data-substep="firma"]');
+  const firmaEl = document.getElementById('qzFirma');
+  const step2Cta = document.getElementById('qzStep2Cta');
+  const step2Err = document.getElementById('qzStep2Error');
+
+  function eval2() {
+    const parts = nameEl.value.trim().split(/\s+/).filter(Boolean);
+    const ok = parts.length >= 2 && firmaEl.value.trim().length >= 2;
+    step2Cta.disabled = !ok;
+  }
+  function revealFirma() {
+    const parts = nameEl.value.trim().split(/\s+/).filter(Boolean);
+    if (parts.length >= 2 && firmaSubstep.style.display === 'none') {
+      firmaSubstep.style.display = '';
+      setTimeout(() => firmaEl.focus(), 100);
+    }
+  }
+  nameEl.addEventListener('blur', revealFirma);
+  nameEl.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); revealFirma(); }});
+  nameEl.addEventListener('input', () => { eval2(); nameEl.classList.remove('is-error'); });
+  firmaEl.addEventListener('input', () => { eval2(); firmaEl.classList.remove('is-error'); });
+
+  step2Cta.addEventListener('click', () => {
+    const parts = nameEl.value.trim().split(/\s+/).filter(Boolean);
+    if (parts.length < 2) { nameEl.classList.add('is-error'); step2Err.classList.add('active'); return; }
+    if (firmaEl.value.trim().length < 2) { firmaEl.classList.add('is-error'); step2Err.classList.add('active'); return; }
+    step2Err.classList.remove('active');
+    _quizAnswers.vorname = parts[0];
+    _quizAnswers.nachname = parts.slice(1).join(' ');
+    _quizAnswers.firma = firmaEl.value.trim();
+    showSlide(3);
+  });
+
+  // Step 3: Phone + Privacy + Final Submit
+  const phoneEl = document.getElementById('qzPhone');
+  const privacyEl = document.getElementById('qzPrivacy');
+  const finalBtn = document.getElementById('qzFinalSubmit');
+  const step3Err = document.getElementById('qzStep3Error');
+
+  function eval3() {
+    const ok = phoneEl.value.trim().length >= 6 && privacyEl.checked;
+    finalBtn.disabled = !ok;
+  }
+  phoneEl.addEventListener('input', () => { eval3(); phoneEl.classList.remove('is-error'); });
+  privacyEl.addEventListener('change', eval3);
+  finalBtn.addEventListener('click', finalQuizSubmit);
+}
+
+function personalizeStep1() {
+  const h = document.getElementById('quizStep1Headline');
+  const sub = document.getElementById('quizStep1Sub');
+  const ort = (_data && _data.region && _data.region.displayName) ? _data.region.displayName : 'Ihre Region';
+  h.innerHTML = `Wohin senden wir Ihren Vollreport f&uuml;r <span class="quiz-perso">${ort}</span>?`;
+  if (sub) sub.innerHTML = `Tragen Sie Ihre gesch&auml;ftliche E-Mail-Adresse ein &mdash; Detailanalyse, Strategie und Cost-per-Hire werden sofort freigeschaltet.`;
+}
+
+async function finalQuizSubmit() {
+  const phoneEl = document.getElementById('qzPhone');
+  const privacyEl = document.getElementById('qzPrivacy');
+  const finalBtn = document.getElementById('qzFinalSubmit');
+  const step3Err = document.getElementById('qzStep3Error');
+
+  if (phoneEl.value.trim().length < 6) { phoneEl.classList.add('is-error'); step3Err.classList.add('active'); return; }
+  if (!privacyEl.checked) { step3Err.classList.add('active'); return; }
+  step3Err.classList.remove('active');
+
+  // Phone normalisieren: + prefix wenn fehlt
+  let phone = phoneEl.value.trim();
+  if (!phone.startsWith('+')) phone = '+49 ' + phone.replace(/^0+/, '');
+  _quizAnswers.whatsapp = phone;
+
+  const originalText = finalBtn.textContent;
+  finalBtn.textContent = 'Wird gesendet…';
+  finalBtn.disabled = true;
+
+  // Lead-Data für Storage + Webhook
+  const leadData = {
+    anrede: '',  // wird im Quiz nicht mehr abgefragt
+    vorname: _quizAnswers.vorname,
+    nachname: _quizAnswers.nachname,
+    firma: _quizAnswers.firma,
+    mitarbeiter: '',  // wird im Quiz nicht mehr abgefragt — Sales fragt im Call
+    whatsapp: _quizAnswers.whatsapp,
+    email: _quizAnswers.email,
+    plz: _data ? _data.plzRaw : '',
+    region: _data ? _data.region.displayName : '',
+    region_bl: _data ? _data.region.displayBL : '',
+    region_real_city: _data ? _data.region.realCity : '',
+    region_pop: _data ? _data.region.pop : 0,
+    region_type: _data ? _data.region.type : '',
+    plz_source: _data ? _data.region.plzSource : '',
+    selIds: _data ? _data.selIds : [],
+    overall_score: _data ? _data.overall : '',
+    total_fachkraefte: _data ? _data.total : 0,
+    besetzungsdauer: _data ? _data.dauer : 0,
+    // Funnel-Korrelation: gleiche session_id wie in quiz_funnel_events
+    session_id: _funnelSessionId
+  };
+
+  try {
+    sessionStorage.setItem('gc_lead', JSON.stringify(leadData));
+    localStorage.setItem('gc_lead', JSON.stringify(leadData));
+  } catch(e) {}
+
+  // Meta Pixel CompleteRegistration
+  try {
+    if (typeof fbq !== 'undefined') fbq('track', 'CompleteRegistration', { content_name: 'Kalkulator-Quiz fertig' });
+  } catch(e) {}
+
+  // Funnel-Tracking: Submit erfolgreich
+  trackFunnelEvent('submit_success', null);
+
+  // Slack + Make-Webhook (sendet leadData inkl. session_id)
+  try { sendSlackNotification('lead', leadData); } catch(e) {}
+
+  // Quiz-Container ausblenden, Lock-Peek + Unlock-Hero ausblenden, Full Report zeigen
+  document.getElementById('quizContainer').style.display = 'none';
+  const unlockHero = document.getElementById('unlockHero');
+  if (unlockHero) unlockHero.style.display = 'none';
+  const lockPeek = document.querySelector('.lock-peek');
+  if (lockPeek) lockPeek.style.display = 'none';
+
+  const frEl = document.getElementById('fullReport');
+  frEl.innerHTML = `<div class="fade-up">${buildReport(_data, true)}</div>`;
+  frEl.style.display = 'block';
+
+  setTimeout(() => {
+    _data.results.forEach((r,i) => {
+      const el = document.getElementById('rn_'+i);
+      if (el) countUp(el, r.avail, 800);
+    });
+    document.querySelectorAll('#fullReport .comp-bar-fill').forEach(bar => {
+      const w = bar.dataset.w;
+      if (w) setTimeout(() => bar.style.width = w, 200);
+    });
+    frEl.scrollIntoView({ behavior:'smooth', block:'start' });
+  }, 80);
+}
+
+// ═══════════════════════════════════════
+// BOOKING MODAL
+// ═══════════════════════════════════════
+
+function openModal() {
+  document.getElementById('bookingModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  // Pre-fill form with lead data from sessionStorage (or from current form values)
+  let ld = {};
+  try { ld = JSON.parse(sessionStorage.getItem('gc_lead') || '{}'); } catch(e) {}
+
+  // Build full name from anrede+vorname+nachname or use what's stored
+  const fullName = (ld.vorname && ld.nachname)
+    ? (ld.vorname + ' ' + ld.nachname).trim()
+    : (ld.name || '');
+
+  const firma = ld.firma || document.getElementById('f_firma')?.value || '';
+  const wa = ld.whatsapp || document.getElementById('f_wa')?.value || '';
+  const email = ld.email || document.getElementById('f_email')?.value || '';
+
+  if (document.getElementById('b_name') && fullName) document.getElementById('b_name').value = fullName;
+  if (document.getElementById('b_firma') && firma) document.getElementById('b_firma').value = firma;
+  if (document.getElementById('b_wa') && wa) document.getElementById('b_wa').value = wa;
+  if (document.getElementById('b_email') && email) document.getElementById('b_email').value = email;
+}
+function closeModal() {
+  document.getElementById('bookingModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('bookingModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+function submitBooking(e) {
+  e.preventDefault();
+  const errEl = document.getElementById('bookingError');
+  const req   = ['b_name','b_firma','b_wa','b_email','b_termin'];
+  if (req.some(id => !document.getElementById(id)?.value.trim())) {
+    errEl.style.display = 'block'; return;
+  }
+  errEl.style.display = 'none';
+
+  // Meta Pixel Schedule event
+  if (typeof fbq !== 'undefined') fbq('track', 'Schedule');
+
+  // Get lead data from sessionStorage for anrede/vorname/nachname
+  let ld = {};
+  try { ld = JSON.parse(sessionStorage.getItem('gc_lead') || '{}'); } catch(e) {}
+
+  const fullName = document.getElementById('b_name').value.trim();
+  // Try to parse fullName into vorname/nachname
+  const nameParts = fullName.split(/\s+/);
+  const vorname = ld.vorname || nameParts[0] || '';
+  const nachname = ld.nachname || nameParts.slice(1).join(' ') || '';
+
+  const selIds = (ld.selIds && Array.isArray(ld.selIds)) ? ld.selIds : (_data ? _data.selIds : []);
+
+  const bookingData = {
+    anrede: ld.anrede || '',
+    vorname: vorname,
+    nachname: nachname,
+    name: fullName,
+    firma: document.getElementById('b_firma').value.trim(),
+    whatsapp: document.getElementById('b_wa').value.trim(),
+    email: document.getElementById('b_email').value.trim(),
+    termin: document.getElementById('b_termin').value,
+    mitarbeiter: ld.mitarbeiter || '',
+    plz: ld.plz || (_data ? _data.plzRaw : ''),
+    region: ld.region || (_data ? _data.region.name : ''),
+    selIds: selIds
+  };
+
+  // Update sessionStorage AND localStorage (cross-tab for Stripe)
+  sessionStorage.setItem('gc_lead', JSON.stringify(bookingData));
+  localStorage.setItem('gc_lead', JSON.stringify(bookingData));
+
+  // Slack notification
+  sendSlackNotification('booking', bookingData);
+
+  // Build URL params (selIds as comma-separated)
+  const params = new URLSearchParams({
+    anrede: bookingData.anrede,
+    vorname: bookingData.vorname,
+    nachname: bookingData.nachname,
+    name: bookingData.name,
+    firma: bookingData.firma,
+    whatsapp: bookingData.whatsapp,
+    email: bookingData.email,
+    mitarbeiter: bookingData.mitarbeiter,
+    plz: bookingData.plz,
+    region: bookingData.region,
+    profs: selIds.join(',')
+  });
+
+  window.location.replace('beratungstermin-danke.html?' + params.toString());
+}
+
+// ═══════════════════════════════════════
+// ATTRIBUTION / UTM CAPTURE
+// ═══════════════════════════════════════
+// Liest UTM-Parameter & Click-IDs beim ersten Seitenaufruf aus der URL und
+// persistiert sie in localStorage (überlebt Stripe-Redirect + Cross-Page-Flow).
+// Wird in jedem Make-Payload als `attribution`-Objekt mitgeschickt.
+const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid','ttclid','msclkid'];
+const ATTR_STORAGE_KEY = 'gc_attribution';
+
+function captureAttribution() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const attr = {};
+    let hasNewParams = false;
+    UTM_KEYS.forEach(k => {
+      const v = params.get(k);
+      if (v) { attr[k] = v; hasNewParams = true; }
+    });
+    if (hasNewParams) {
+      attr.landing_url = window.location.href;
+      attr.referrer = document.referrer || null;
+      attr.captured_at = new Date().toISOString();
+      localStorage.setItem(ATTR_STORAGE_KEY, JSON.stringify(attr));
+    }
+  } catch(e) { console.log('[Attribution] capture error:', e); }
+}
+
+function getAttribution() {
+  try {
+    const stored = localStorage.getItem(ATTR_STORAGE_KEY);
+    return stored ? JSON.parse(stored) : {};
+  } catch(e) { return {}; }
+}
+
+// Sofort beim Laden capturen
+captureAttribution();
+
+// ═══════════════════════════════════════
+// MAKE.COM WEBHOOK (zentraler Integrations-Hub)
+// ═══════════════════════════════════════
+// Ein einziger Webhook für alle Events: lead, booking, purchase.
+// Make.com übernimmt Slack-Nachrichten und E-Mail-Versand an den Kunden.
+// Freddy: Ersetze YOUR_MAKE_WEBHOOK mit deiner Catch-Hook-URL aus Make.com.
+const MAKE_WEBHOOK_URL = 'https://hook.eu1.make.com/7uvygnajw7qitsuxh7d7ebxhme28x7x2';
+
+async function notifyMake(event, payload) {
+  if (!MAKE_WEBHOOK_URL || MAKE_WEBHOOK_URL.includes('YOUR_MAKE_WEBHOOK')) {
+    console.log('[Make Webhook] Noch nicht konfiguriert — überspringe Event:', event);
+    return;
+  }
+  // Pre-serialize nested arrays/objects as JSON strings so Make.com can pass
+  // them straight into the Supabase HTTP body (Make's Raw-JSON renderer mangles
+  // arrays/objects into comma-separated values otherwise).
+  if (payload.lead && Array.isArray(payload.lead.selIds)) {
+    payload.lead.gesuchte_berufe_json = JSON.stringify(payload.lead.selIds);
+  }
+  if (payload.analysis) {
+    payload.qualifizierung_json = JSON.stringify(payload.analysis);
+  }
+  const body = JSON.stringify({
+    event: event,
+    timestamp: new Date().toISOString(),
+    source: 'kalkulator-tiefbau.green-careers.de',
+    attribution: getAttribution(),
+    ...payload
+  });
+  try {
+    // Primärer Versuch: application/json (funktioniert wenn CORS-Header in Make erlaubt sind)
+    await fetch(MAKE_WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
+      body: body
+    });
+  } catch(e) {
+    // Fallback: text/plain (umgeht CORS-Preflights bei manchen Browsern)
+    try {
+      await fetch(MAKE_WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: body
+      });
+    } catch(e2) {
+      console.log('[Make Webhook] Fehler:', e2);
+    }
+  }
+}
+
+// Kompatibilitäts-Wrapper — ruft weiterhin notifyMake auf
+async function sendSlackNotification(type, data) {
+  const eventMap = { lead: 'lead', booking: 'booking' };
+  const event = eventMap[type] || type;
+  notifyMake(event, { lead: data });
+}
+
+// Auto-detect gender from first name
+const MALE_NAMES = ['alexander','andreas','benjamin','bernd','björn','carsten','christian','christoph','daniel','david','dennis','detlef','dieter','dirk','dominik','erik','fabian','felix','florian','frank','franz','frederik','fritz','georg','gerd','gerhard','guido','günter','hans','harald','hartmut','heiko','heinrich','heinz','helmut','henning','herbert','hermann','holger','horst','ingo','jan','jens','joachim','jochen','johannes','jörg','jürgen','kai','karl','karsten','klaus','konrad','kurt','lars','lukas','manfred','marcel','marco','marcus','mario','markus','martin','mathias','matthias','max','michael','moritz','nico','nicolas','niklas','norbert','olaf','oliver','otto','patrick','paul','peter','philipp','rainer','ralf','reinhard','robert','rolf','rüdiger','sascha','sebastian','simon','stefan','steffen','stephan','sven','thomas','thorsten','tim','tobias','torsten','uwe','volker','walter','werner','wilhelm','willi','wolfgang'];
+const FEMALE_NAMES = ['alexandra','andrea','angelika','anja','anna','annette','antje','astrid','barbara','beate','bianca','birgit','brigitte','carina','carmen','caroline','charlotte','christa','christiane','christina','claudia','daniela','diana','doris','dorothea','elena','elke','emma','erika','eva','franziska','friederike','gabriele','gisela','gudrun','hannelore','heidi','heike','helga','ines','ingrid','irene','iris','jana','janina','jasmin','jennifer','jessica','johanna','julia','karin','katharina','kathrin','katja','kerstin','klara','laura','lena','lisa','luise','manuela','margarete','maria','marie','marina','marion','martina','melanie','michaela','monika','nadine','natascha','nicole','nina','petra','ramona','regina','renate','rita','sabine','sandra','sara','silke','silvia','simone','sonja','stefanie','susanne','tanja','ulrike','ursula','ute','vanessa','vera','veronika'];
+
+document.getElementById('f_vorname')?.addEventListener('blur', function() {
+  const n = this.value.trim().toLowerCase();
+  const anredeSelect = document.getElementById('f_anrede');
+  if (!anredeSelect || anredeSelect.value) return;
+  if (MALE_NAMES.includes(n)) anredeSelect.value = 'Herr';
+  else if (FEMALE_NAMES.includes(n)) anredeSelect.value = 'Frau';
+});
+
+// ═══════════════════════════════════════
+// PLZ INPUT
+// ═══════════════════════════════════════
+const plzInput = document.getElementById('plzInput');
+plzInput.addEventListener('keydown', e=>{ if(e.key==='Enter') calculate(); });
+plzInput.addEventListener('input', function(){ this.value=this.value.replace(/\D/g,''); });
+</script>
+</body>
+</html>
