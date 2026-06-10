@@ -1619,7 +1619,7 @@ async function calculate() {
           <div class="quiz-input-group" data-substep="firma" style="display:none;">
             <div class="quiz-input-wrap">
               <svg class="quiz-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>
-              <input type="text" class="quiz-input" id="qzFirma" placeholder="Name Ihres Betriebs" autocomplete="organization" autocapitalize="words" spellcheck="false">
+              <input type="text" class="quiz-input" id="qzFirma" placeholder="z. B. Müller Tiefbau GmbH" autocomplete="organization" autocapitalize="words" spellcheck="false">
             </div>
           </div>
 
@@ -1939,7 +1939,7 @@ function initQuizListeners() {
 
   function eval2() {
     const parts = nameEl.value.trim().split(/\s+/).filter(Boolean);
-    const ok = parts.length >= 2 && firmaEl.value.trim().length >= 2;
+    const ok = parts.length >= 2 && (/[A-Za-zÄÖÜäöüß]/.test(firmaEl.value) && firmaEl.value.trim().split(/[\s\-]+/).filter(w => w.length >= 2).length >= 2);
     step2Cta.disabled = !ok;
   }
   function revealFirma() {
@@ -1957,7 +1957,7 @@ function initQuizListeners() {
   step2Cta.addEventListener('click', () => {
     const parts = nameEl.value.trim().split(/\s+/).filter(Boolean);
     if (parts.length < 2) { nameEl.classList.add('is-error'); step2Err.classList.add('active'); return; }
-    if (firmaEl.value.trim().length < 2) { firmaEl.classList.add('is-error'); step2Err.classList.add('active'); return; }
+    if (!(/[A-Za-zÄÖÜäöüß]/.test(firmaEl.value) && firmaEl.value.trim().split(/[\s\-]+/).filter(w => w.length >= 2).length >= 2)) { firmaEl.classList.add('is-error'); step2Err.classList.add('active'); return; }
     step2Err.classList.remove('active');
     _quizAnswers.vorname = parts[0];
     _quizAnswers.nachname = parts.slice(1).join(' ');
@@ -1999,8 +1999,11 @@ async function finalQuizSubmit() {
   step3Err.classList.remove('active');
 
   // Phone normalisieren: + prefix wenn fehlt
-  let phone = phoneEl.value.trim();
-  if (!phone.startsWith('+')) phone = '+49 ' + phone.replace(/^0+/, '');
+  let digits = phoneEl.value.replace(/\D/g, '');
+  if (digits.startsWith('00')) digits = digits.slice(2);
+  else if (digits.startsWith('0')) digits = '49' + digits.slice(1);
+  else if (!digits.startsWith('49')) digits = '49' + digits;
+  let phone = '+' + digits;
   _quizAnswers.whatsapp = phone;
 
   const originalText = finalBtn.textContent;
