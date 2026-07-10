@@ -2132,13 +2132,19 @@ function submitBooking(e) {
 
   const selIds = (ld.selIds && Array.isArray(ld.selIds)) ? ld.selIds : (_data ? _data.selIds : []);
 
+  // WhatsApp-Nummer auf sauberes E.164 normalisieren (keine Leerzeichen/Sonderzeichen!)
+  let waDigits = document.getElementById('b_wa').value.replace(/\D/g, '');
+  if (waDigits.startsWith('00')) waDigits = waDigits.slice(2);
+  else if (waDigits.startsWith('0')) waDigits = '49' + waDigits.slice(1);
+  else if (!waDigits.startsWith('49')) waDigits = '49' + waDigits;
+
   const bookingData = {
     anrede: ld.anrede || '',
     vorname: vorname,
     nachname: nachname,
     name: fullName,
     firma: document.getElementById('b_firma').value.trim(),
-    whatsapp: document.getElementById('b_wa').value.trim(),
+    whatsapp: '+' + waDigits,
     email: document.getElementById('b_email').value.trim(),
     termin: document.getElementById('b_termin').value,
     mitarbeiter: ld.mitarbeiter || '',
